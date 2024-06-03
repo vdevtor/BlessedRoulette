@@ -2,26 +2,28 @@ package com.vitorthemyth.blessedroullet.presenter.tracker
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.FabPosition
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.ModalBottomSheetLayout
 import androidx.compose.material.ModalBottomSheetValue
 import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
 import androidx.compose.material.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.vitorthemyth.blessedroullet.core.components.DefaultFAB
 import com.vitorthemyth.blessedroullet.core.components.HeaderTitle
+import com.vitorthemyth.blessedroullet.core.provider.provideRouletteStrategy
+import com.vitorthemyth.blessedroullet.presenter.tracker.components.SelectNumberBottomSheet
+import com.vitorthemyth.blessedroullet.presenter.tracker.components.TrackerAvailableStrategies
 import com.vitorthemyth.blessedroullet.presenter.tracker.components.TrackerHeader
-import com.vitorthemyth.blessedroullet.ui.theme.AccentColor
+import com.vitorthemyth.blessedroullet.ui.theme.BackgroundColor
 import com.vitorthemyth.blessedroullet.ui.values.LocalSpacing
 import kotlinx.coroutines.launch
 
@@ -40,8 +42,12 @@ fun TrackerScreen(
     ModalBottomSheetLayout(
         sheetState = modalBottomSheetState,
         sheetContent = {
-            Text("sheetContent", modifier = Modifier.fillMaxHeight())
+            SelectNumberBottomSheet{
+               scope.launch { modalBottomSheetState.hide() }
+                viewModel.onEvent(TrackerScreenEvents.OnNewNumberSelected(it))
+            }
         },
+        sheetShape = MaterialTheme.shapes.medium
     ) {
         Scaffold(
             floatingActionButtonPosition = FabPosition.End,
@@ -52,19 +58,22 @@ fun TrackerScreen(
             }
         ) { paddingValues ->
             paddingValues.toString()
-
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(color = AccentColor)
+                    .background(color = BackgroundColor)
             ) {
                 TrackerHeader(lastSelectedNumbers = state.lastSelectedNumbers)
                 HeaderTitle(
                     text = "Estratégias Disponíveis",
-                    modifier = Modifier.align(Alignment.CenterHorizontally),
-                    color = Color.White
+                    modifier = Modifier.align(Alignment.CenterHorizontally)
                 )
 
+                TrackerAvailableStrategies(
+                    availableStrategies = state.availableStrategies,
+                    modifier = Modifier
+                        .padding(LocalSpacing.current.spaceMedium)
+                )
             }
         }
     }
@@ -86,7 +95,7 @@ fun TrackerScreenPreviewlable() {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(color = AccentColor)
+                .background(color = BackgroundColor)
         ) {
 
             //Header
@@ -95,10 +104,13 @@ fun TrackerScreenPreviewlable() {
             HeaderTitle(
                 text = "Estratégias Disponíveis",
                 modifier = Modifier
-                    .align(Alignment.CenterHorizontally),
-                color = Color.White
+                    .align(Alignment.CenterHorizontally)
             )
-            //Recycler
+            TrackerAvailableStrategies(
+                availableStrategies = provideRouletteStrategy(),
+                modifier = Modifier
+                    .padding(LocalSpacing.current.spaceMedium)
+            )
         }
     }
 }

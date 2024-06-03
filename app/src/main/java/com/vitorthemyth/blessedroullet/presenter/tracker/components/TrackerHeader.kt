@@ -11,6 +11,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Card
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -18,6 +20,7 @@ import androidx.compose.runtime.mutableLongStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.FirstBaseline
 import androidx.compose.ui.text.TextStyle
@@ -29,8 +32,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.vitorthemyth.blessedroullet.presenter.welcome.model.Dozen
 import com.vitorthemyth.blessedroullet.presenter.welcome.model.RouletteNumber
-import com.vitorthemyth.blessedroullet.ui.theme.DarkAccentColor
+import com.vitorthemyth.blessedroullet.ui.theme.GoldenColor
 import com.vitorthemyth.blessedroullet.ui.theme.OrangeColor
+import com.vitorthemyth.blessedroullet.ui.theme.PurpleColor
 import com.vitorthemyth.blessedroullet.ui.values.LocalSpacing
 import com.vitorthemyth.blessedroullet.ui.values.LocalTextDimensions
 import kotlinx.coroutines.delay
@@ -39,108 +43,110 @@ import kotlinx.coroutines.delay
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun TrackerHeader(
-    lastSelectedNumbers : List<RouletteNumber>
+    lastSelectedNumbers: List<RouletteNumber>,
+    modifier: Modifier = Modifier
 ) {
     val textDimensions = LocalTextDimensions.current
     val spacing = LocalSpacing.current
     val currentTimeMillis = remember { mutableLongStateOf(0L) }
 
-    LaunchedEffect(key1 = Unit ){
+    LaunchedEffect(key1 = Unit) {
         val startTime = System.currentTimeMillis()
-        while (true){
+        while (true) {
             delay(1000)
             currentTimeMillis.longValue = System.currentTimeMillis() - startTime
         }
     }
-    Column(
-        modifier = Modifier
-            .padding(spacing.spaceIntermediate)
+
+
+    Card(
+        modifier = modifier
             .fillMaxWidth()
-            .background(
-                color = DarkAccentColor,
-                shape = RoundedCornerShape(8.dp)
-            )
-    ) {
-        Text(
-            modifier = Modifier
-                .padding(top = spacing.spaceSmall)
-                .align(Alignment.End)
-                .padding(end = spacing.spaceSmall),
-            text = "Horas Jogadas: ${formatTime(currentTimeMillis.longValue)}",
-            fontSize = textDimensions.textSmall,
-            fontWeight = FontWeight.Normal,
-            color = Color.White,
-            style = TextStyle(letterSpacing = 0.5.sp),
-            textAlign = TextAlign.End
-        )
+            .padding(spacing.spaceMedium),
+        elevation = 99.dp,
+        shape = RoundedCornerShape(8.dp),
+        backgroundColor = PurpleColor,
 
-        Spacer(modifier = Modifier.height(spacing.spaceMedium))
-
-
-        Row(
-            modifier = Modifier
-                .fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween
         ) {
+        Column {
             Text(
-                text = "Últimos números \nsorteados",
-                fontSize = textDimensions.textMedium,
-                fontWeight = FontWeight.SemiBold,
-                color = Color.White,
                 modifier = Modifier
-                    .padding(spacing.spaceSmall)
+                    .padding(top = spacing.spaceSmall)
+                    .align(Alignment.End)
+                    .padding(end = spacing.spaceSmall),
+                text = "Horas Jogadas: ${formatTime(currentTimeMillis.longValue)}",
+                fontSize = textDimensions.textSmall,
+                fontWeight = FontWeight.Normal,
+                color = Color.White,
+                style = TextStyle(letterSpacing = 0.5.sp),
+                textAlign = TextAlign.End
             )
 
-            Text(
-                text = "Última estratégia\nescolhida",
-                fontSize = textDimensions.textMedium,
-                fontWeight = FontWeight.SemiBold,
-                color = Color.White,
+            Spacer(modifier = Modifier.height(spacing.spaceMedium))
+
+            Row(
                 modifier = Modifier
-                    .padding(spacing.spaceSmall)
-            )
-        }
-
-
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(spacing.spaceSmall)
-            ,
-            horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-
-            FlowRow(
-                maxItemsInEachRow = 4,
-                modifier = Modifier.weight(.5f)
+                    .fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween
             ) {
-                lastSelectedNumbers.forEach { rouletteNumber->
-                    HeaderSelectedNumber(
-                        number = rouletteNumber.number,
-                        color = rouletteNumber.color,
-                        onLongClick = { _ ->
+                Text(
+                    text = "Últimos números \nsorteados",
+                    fontSize = textDimensions.textMedium,
+                    fontWeight = FontWeight.SemiBold,
+                    color = Color.White,
+                    modifier = Modifier
+                        .padding(spacing.spaceSmall)
+                )
 
-                        }
-                    )
-                }
+                Text(
+                    text = "Última estratégia\nescolhida",
+                    fontSize = textDimensions.textMedium,
+                    fontWeight = FontWeight.SemiBold,
+                    color = Color.White,
+                    modifier = Modifier
+                        .padding(spacing.spaceSmall)
+                )
             }
 
-            Text(
-                text = "Tic Tac",
-                fontSize = textDimensions.textMedium,
-                fontWeight = FontWeight.SemiBold,
-                fontFamily = FontFamily.SansSerif,
-                color = Color.White,
-                textAlign = TextAlign.Center,
+            Row(
                 modifier = Modifier
-                    .background(
-                        color = OrangeColor,
-                        shape = RoundedCornerShape(4.dp)
-                    )
-                    .weight(.3f)
-                    .alignBy(FirstBaseline)
-                    .padding(spacing.spaceSmall)
-            )
+                    .fillMaxWidth()
+                    .padding(spacing.spaceSmall),
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+
+                FlowRow(
+                    maxItemsInEachRow = 4,
+                    modifier = Modifier.weight(.5f)
+                ) {
+                    lastSelectedNumbers.forEach { rouletteNumber ->
+                        HeaderSelectedNumber(
+                            number = rouletteNumber.number,
+                            color = rouletteNumber.color,
+                            onLongClick = { _ ->
+
+                            }
+                        )
+                    }
+                }
+
+                Text(
+                    text = "Tic Tac",
+                    fontSize = textDimensions.textMedium,
+                    fontWeight = FontWeight.SemiBold,
+                    fontFamily = FontFamily.SansSerif,
+                    color = Color.White,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier
+                        .background(
+                            color = OrangeColor,
+                            shape = RoundedCornerShape(4.dp)
+                        )
+                        .weight(.3f)
+                        .alignBy(FirstBaseline)
+                        .padding(spacing.spaceSmall)
+                )
+            }
         }
     }
 }
@@ -153,10 +159,10 @@ private fun formatTime(timeInMillis: Long): String {
 }
 
 @Composable
-@Preview(device = "id:pixel_xl")
-private fun Preview(){
+@Preview(device = "id:pixel_xl", showBackground = true, backgroundColor = 0xFFFFFFFF)
+private fun Preview() {
     TrackerHeader(
-        lastSelectedNumbers =  listOf(
+        lastSelectedNumbers = listOf(
             RouletteNumber(
                 number = "22",
                 color = Color.Red,

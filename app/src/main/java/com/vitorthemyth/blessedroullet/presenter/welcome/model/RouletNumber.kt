@@ -11,5 +11,5 @@ data class RouletteNumber(
 )
 
 enum class Dozen{
-    first,second,third
+    first,second,third,none
 }

@@ -1,6 +1,7 @@
 package com.vitorthemyth.blessedroullet.core.provider
 
 import androidx.compose.ui.graphics.Color
+import com.vitorthemyth.blessedroullet.presenter.tracker.model.RouletteStrategy
 import com.vitorthemyth.blessedroullet.presenter.welcome.model.Dozen
 import com.vitorthemyth.blessedroullet.presenter.welcome.model.RouletteNumber
 
@@ -43,4 +44,26 @@ fun provideRouletteNumbers() = listOf(
     RouletteNumber(number = "34", color = Color.Red, isEven = true, dozen = Dozen.third, isHigherNumber = true),
     RouletteNumber(number = "35", color = Color.Black, isEven = false, dozen = Dozen.third, isHigherNumber = true),
     RouletteNumber(number = "36", color = Color.Red, isEven = true, dozen = Dozen.third, isHigherNumber = true)
+)
+
+fun provideRouletteStrategy() = listOf(
+    RouletteStrategy(
+        strategyTitle = "Tic Tac",
+        strategyDescription = "bla bla bla bla",
+        playableNumbers = listOf(RouletteNumber(number = "33", color = Color.Black, isEven = false, dozen = Dozen.third, isHigherNumber = true),
+            RouletteNumber(number = "34", color = Color.Red, isEven = true, dozen = Dozen.third, isHigherNumber = true)),
+        playableDozen = Dozen.second,
+        placeBetOnHighNumber = true,
+        placeBetOnLowNumber = false
+    ),
+    RouletteStrategy(
+        strategyTitle = "Vizinhos",
+        strategyDescription = "tra tra tra tra",
+        playableNumbers = listOf(RouletteNumber(number = "33", color = Color.Black, isEven = false, dozen = Dozen.third, isHigherNumber = true),
+            RouletteNumber(number = "34", color = Color.Red, isEven = true, dozen = Dozen.third, isHigherNumber = true)),
+        playableDozen = Dozen.second,
+        placeBetOnHighNumber = true,
+        placeBetOnLowNumber = false
+    )
+
 )

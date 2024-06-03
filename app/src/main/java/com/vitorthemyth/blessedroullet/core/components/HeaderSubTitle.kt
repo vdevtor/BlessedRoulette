@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import com.vitorthemyth.blessedroullet.ui.theme.MyTypography
 import com.vitorthemyth.blessedroullet.ui.values.LocalSpacing
@@ -12,7 +13,8 @@ import com.vitorthemyth.blessedroullet.ui.values.LocalSpacing
 @Composable
 fun HeaderSubtitle(
     text : String,
-    modifier: Modifier
+    modifier: Modifier,
+    textColor: Color = Color.Black
 ) {
     val spacing = LocalSpacing.current
     Text(
@@ -25,6 +27,6 @@ fun HeaderSubtitle(
                 top = spacing.spaceSmall
             )
             .fillMaxWidth(),
-        style = MyTypography.subTitle
+        style = MyTypography.subTitle.copy(color = textColor)
     )
 }

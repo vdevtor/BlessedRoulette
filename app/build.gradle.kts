@@ -72,6 +72,7 @@ dependencies {
     implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
     implementation("com.google.code.gson:gson:2.10")
     implementation("com.google.accompanist:accompanist-flowlayout:0.24.13-rc")
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.8.1")
 
 
     testImplementation("junit:junit:4.13.2")
