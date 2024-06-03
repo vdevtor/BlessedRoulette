@@ -22,6 +22,7 @@ import com.vitorthemyth.blessedroullet.presenter.welcome.components.SelectedNumb
 import com.vitorthemyth.blessedroullet.presenter.welcome.model.Dozen
 import com.vitorthemyth.blessedroullet.presenter.welcome.model.RouletteNumber
 import com.vitorthemyth.blessedroullet.ui.values.LocalSpacing
+import kotlinx.coroutines.flow.collectLatest
 
 @Composable
 fun WelcomeScreen(
@@ -33,7 +34,7 @@ fun WelcomeScreen(
     val state = viewModel.state
 
     LaunchedEffect(snackBarHostState) {
-        viewModel.uiEvent.collect { event ->
+        viewModel.uiEvent.collectLatest { event ->
             when (event) {
                 is UiEvent.ShowSnackBar -> {
                     snackBarHostState.showSnackbar(
