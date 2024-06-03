@@ -5,3 +5,6 @@ import androidx.compose.ui.graphics.Color
 val BackgroundColor = Color(0xFFFFFFFF)
 val onBackgroundColor = Color(0xFF000000)
 val AccentColor = Color(0xFF0E88AD)
+val DarkAccentColor = Color(0xFF03495E)
+val OrangeColor = Color(0xFFD56D4D)
+val PurpleColor = Color(0xFF7D34FF)

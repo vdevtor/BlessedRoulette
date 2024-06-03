@@ -2,8 +2,8 @@ package com.vitorthemyth.blessedroullet.ui.theme
 
 import android.app.Activity
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.lightColorScheme
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.SideEffect
@@ -15,7 +15,7 @@ import com.vitorthemyth.blessedroullet.ui.values.LocalSpacing
 import com.vitorthemyth.blessedroullet.ui.values.LocalTextDimensions
 import com.vitorthemyth.blessedroullet.ui.values.TextDimensions
 
-private val LightColorScheme = lightColorScheme(
+private val LightColorScheme = lightColors(
     primary = BackgroundColor,
     onPrimary = onBackgroundColor,
     secondary = AccentColor
@@ -39,7 +39,7 @@ fun BlessedRoulletTheme(
         LocalSpacing provides(Dimensions()),
         LocalTextDimensions provides(TextDimensions()) ) {
         MaterialTheme(
-            colorScheme = colorScheme,
+            colors = colorScheme,
             typography = Typography,
             content = content
         )

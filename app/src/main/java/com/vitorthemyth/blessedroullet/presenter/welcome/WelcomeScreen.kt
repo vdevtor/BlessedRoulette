@@ -4,8 +4,10 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.MaterialTheme
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.SnackbarHostState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -14,6 +16,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.vitorthemyth.blessedroullet.core.components.ActionButton
 import com.vitorthemyth.blessedroullet.core.components.HeaderSubtitle
 import com.vitorthemyth.blessedroullet.core.components.HeaderTitle
+import com.vitorthemyth.blessedroullet.core.ui.UiEvent
 import com.vitorthemyth.blessedroullet.presenter.welcome.components.AvailableNumbersGrid
 import com.vitorthemyth.blessedroullet.presenter.welcome.components.SelectedNumbersRow
 import com.vitorthemyth.blessedroullet.presenter.welcome.model.Dozen
@@ -22,30 +25,57 @@ import com.vitorthemyth.blessedroullet.ui.values.LocalSpacing
 
 @Composable
 fun WelcomeScreen(
+    snackBarHostState: SnackbarHostState,
     viewModel: WelcomeScreenViewModel = hiltViewModel(),
-    onNextClick: () -> Unit,
+    onNavigateUp: () -> Unit,
 ) {
     val spacing = LocalSpacing.current
     val state = viewModel.state
 
+    LaunchedEffect(snackBarHostState) {
+        viewModel.uiEvent.collect { event ->
+            when (event) {
+                is UiEvent.ShowSnackBar -> {
+                    snackBarHostState.showSnackbar(
+                        message = event.message
+                    )
+                }
+
+                UiEvent.NavigateUp -> {
+                    onNavigateUp()
+                }
+
+                else -> Unit
+            }
+        }
+    }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(color = MaterialTheme.colorScheme.background)
+            .background(color = MaterialTheme.colors.background)
     ) {
 
-        HeaderTitle(text = "Bem vindo ao Blessed Roulette" ,
-            modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
+        HeaderTitle(
+            text = "Bem vindo ao Blessed Roulette",
+            modifier = Modifier
+                .align(alignment = Alignment.CenterHorizontally)
+                .padding(top = spacing.spaceLarge)
+                .padding(
+                    start = spacing.spaceLarge,
+                    end = spacing.spaceLarge,
+                    top = spacing.spaceSmall
+                )
         )
 
-       HeaderSubtitle(
-           text = "Informe os ultimos 7 numeros sorteados na roleta",
-           modifier = Modifier.align(Alignment.CenterHorizontally)
-       )
+        HeaderSubtitle(
+            text = "Informe os ultimos 7 numeros sorteados na roleta",
+            modifier = Modifier.align(Alignment.CenterHorizontally)
+        )
 
         SelectedNumbersRow(
             selectedNumbers = state.selectedNumbers
-        ){ numberRemoved ->
+        ) { numberRemoved ->
             viewModel.onEvent(WelcomeEvents.OnNumberRemoved(numberRemoved))
         }
         ActionButton(
@@ -55,11 +85,11 @@ fun WelcomeScreen(
             text = "Avançar",
             isEnabled = state.isReadyToGo
         ) {
-
+            viewModel.onEvent(WelcomeEvents.OnNextClicked)
         }
 
-        AvailableNumbersGrid(Modifier){rouletteNumber ->
-                viewModel.onEvent(WelcomeEvents.OnNumberSelected(rouletteNumber))
+        AvailableNumbersGrid(Modifier) { rouletteNumber ->
+            viewModel.onEvent(WelcomeEvents.OnNumberSelected(rouletteNumber))
         }
     }
 }
@@ -72,11 +102,18 @@ fun WelcomeScreenPreviewlable(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(color = MaterialTheme.colorScheme.background)
+            .background(color = MaterialTheme.colors.background)
     ) {
 
-        HeaderTitle(text = "Bem vindo ao Blessed Roulette" ,
+        HeaderTitle(
+            text = "Bem vindo ao Blessed Roulette",
             modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
+                .padding(top = spacing.spaceLarge)
+                .padding(
+                    start = spacing.spaceLarge,
+                    end = spacing.spaceLarge,
+                    top = spacing.spaceSmall
+                )
         )
 
         HeaderSubtitle(
@@ -86,7 +123,7 @@ fun WelcomeScreenPreviewlable(
 
         SelectedNumbersRow(
             selectedNumbers = numberlist
-        ){ numberRemoved ->
+        ) { _ ->
 
         }
 
@@ -100,15 +137,15 @@ fun WelcomeScreenPreviewlable(
 
         }
 
-        AvailableNumbersGrid(Modifier){}
+        AvailableNumbersGrid(Modifier) {}
     }
 }
 
 @Preview(device = "id:pixel_4_xl")
 @Composable
-private fun Preview(){
+private fun Preview() {
     WelcomeScreenPreviewlable(
-       numberlist = listOf(
+        numberlist = listOf(
             RouletteNumber(
                 number = "22",
                 color = Color.Red,
