@@ -40,8 +40,8 @@ class CheckTicTacStrategy {
             strategyDescription = strategyDescription,
             playableNumbers = playableNumbers,
             playableDozen = Dozen.none,
-            placeBetOnHighNumber = false,
-            placeBetOnLowNumber = false,
+            placeBetOnHighNumber = !isHigh,
+            placeBetOnLowNumber = !isLow,
             strategyType = StrategyType.ticTac
         )
     }

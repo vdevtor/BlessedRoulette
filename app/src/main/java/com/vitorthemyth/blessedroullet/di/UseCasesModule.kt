@@ -1,6 +1,8 @@
 package com.vitorthemyth.blessedroullet.di
 
+import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.CheckEvenOddStrategy
 import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.CheckFerrariStrategy
+import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.CheckOneByOneStrategy
 import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.CheckTicTacStrategy
 import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.TrackerUseCases
 import dagger.Module
@@ -20,7 +22,9 @@ internal object UseCasesModule {
     fun providesTrackerUseCases() : TrackerUseCases{
         return TrackerUseCases(
             checkTicTacStrategy = CheckTicTacStrategy(),
-            checkFerrariStrategy = CheckFerrariStrategy()
+            checkFerrariStrategy = CheckFerrariStrategy(),
+            checkEvenOddStrategy = CheckEvenOddStrategy(),
+            checkOneByOneStrategy = CheckOneByOneStrategy()
         )
     }
 }
