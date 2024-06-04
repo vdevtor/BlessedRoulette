@@ -6,44 +6,38 @@ import com.vitorthemyth.blessedroullet.presenter.tracker.model.RouletteStrategy
 import com.vitorthemyth.blessedroullet.presenter.tracker.model.StrategyType
 import com.vitorthemyth.blessedroullet.presenter.welcome.model.Dozen
 import com.vitorthemyth.blessedroullet.presenter.welcome.model.RouletteNumber
-import com.vitorthemyth.blessedroullet.ui.theme.RedColor
+import com.vitorthemyth.blessedroullet.ui.theme.BlueColor
 
-class CheckFerrariStrategy {
+class CheckOneByOneStrategy {
 
-    operator fun invoke(list: List<RouletteNumber>): RouletteStrategy? {
+    operator fun invoke(list: List<RouletteNumber>) : RouletteStrategy?{
         if (list.size < 2) return null
 
         val firstNumber = list[0]
         val secondNumber = list[1]
 
-        val isInTheSameDozen = firstNumber.dozen == secondNumber.dozen
-        if (!isInTheSameDozen) return null
+        val hasTermination = secondNumber.number.contains(firstNumber.number.last())
 
+        if (!hasTermination) return null
 
         val leftNeighbor = (firstNumber.number.toInt() -1).toString()
         val rightNeighbor = (firstNumber.number.toInt() +1).toString()
 
-        val filteredList = provideRouletteNumbers().filter {
-            it.number == leftNeighbor || it.number == rightNeighbor
-        }.let {
-            it.flatMap { it.closestNeighbors }
-        }
-
         val playableNumbers = provideRouletteNumbers().filter {
-                filteredList.contains(it.number)
+            it.number.last() == leftNeighbor.last() || it.number.last() == rightNeighbor.last()
         }
 
 
         return RouletteStrategy(
-            strategyTitle = "Ferrari",
-            strategyDescription = "Os 2 últimos numeros cairam na mesma duzia, selecione o modo pista para pegar vizinho da esquerda e da direita",
+            strategyTitle = "1 por 1",
+            strategyDescription = "Os 2 últimos numeros tem a mesma terminação,selecione os numeros com terminais iguais aos vizinhos do ultimo numero selecionado",
             playableNumbers = playableNumbers,
             playableDozen = Dozen.none,
             placeBetOnHighNumber = false,
             placeBetOnLowNumber = false,
-            cardBackGroundColor = RedColor,
-            strategyType = StrategyType.ferrari,
-            textColor = Color.White
+            cardBackGroundColor = BlueColor,
+            strategyType = StrategyType.oneByOne,
+            textColor = Color.Black
         )
     }
 }

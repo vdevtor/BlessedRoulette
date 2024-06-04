@@ -17,5 +17,5 @@ data class RouletteStrategy(
 )
 
 enum class StrategyType{
-    ticTac,ferrari,none
+    ticTac,ferrari,evenOdd,oneByOne,none
 }
