@@ -7,7 +7,8 @@ data class RouletteNumber(
     val color: Color,
     val isEven : Boolean,
     val dozen : Dozen,
-    val isHigherNumber : Boolean
+    val isHigherNumber : Boolean,
+    val closestNeighbors : List<String> = emptyList()
 )
 
 enum class Dozen(val order:String){

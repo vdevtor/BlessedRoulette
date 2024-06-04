@@ -28,6 +28,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.vitorthemyth.blessedroullet.presenter.tracker.model.RouletteStrategy
 import com.vitorthemyth.blessedroullet.presenter.welcome.model.Dozen
 import com.vitorthemyth.blessedroullet.presenter.welcome.model.RouletteNumber
 import com.vitorthemyth.blessedroullet.ui.theme.OrangeColor
@@ -41,6 +42,7 @@ import kotlinx.coroutines.delay
 @Composable
 fun TrackerHeader(
     lastSelectedNumbers: List<RouletteNumber>,
+    lastStrategy: RouletteStrategy?,
     modifier: Modifier = Modifier
 ) {
     val textDimensions = LocalTextDimensions.current
@@ -128,15 +130,15 @@ fun TrackerHeader(
                 }
 
                 Text(
-                    text = "Tic Tac",
+                    text = lastStrategy?.strategyTitle ?: "Nenhuma",
                     fontSize = textDimensions.textMedium,
                     fontWeight = FontWeight.SemiBold,
                     fontFamily = FontFamily.SansSerif,
-                    color = Color.White,
+                    color = lastStrategy?.textColor ?: Color.White,
                     textAlign = TextAlign.Center,
                     modifier = Modifier
                         .background(
-                            color = OrangeColor,
+                            color = lastStrategy?.cardBackGroundColor ?: OrangeColor,
                             shape = RoundedCornerShape(4.dp)
                         )
                         .weight(.3f)
@@ -209,6 +211,7 @@ private fun Preview() {
                 dozen = Dozen.first,
                 isHigherNumber = true
             )
-        )
+        ),
+        null
     )
 }

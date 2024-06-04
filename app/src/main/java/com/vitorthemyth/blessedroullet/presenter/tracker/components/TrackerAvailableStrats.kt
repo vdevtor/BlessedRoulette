@@ -11,14 +11,17 @@ import com.vitorthemyth.blessedroullet.presenter.tracker.model.RouletteStrategy
 @Composable
 fun TrackerAvailableStrategies(
     modifier: Modifier = Modifier,
-    availableStrategies : List<RouletteStrategy>
+    availableStrategies : List<RouletteStrategy>,
+    onStrategySelected : (RouletteStrategy) -> Unit
 ) {
 
     LazyColumn(
         modifier = modifier
     ) {
         items(availableStrategies){rouletteStrategy->
-            ExpandableStrategy(strategy = rouletteStrategy)
+            ExpandableStrategy(strategy = rouletteStrategy){
+                onStrategySelected(it)
+            }
         }
     }
 
@@ -35,5 +38,5 @@ private fun Preview(
 ) {
     TrackerAvailableStrategies(
         availableStrategies = provideRouletteStrategy()
-    )
+    ){}
 }

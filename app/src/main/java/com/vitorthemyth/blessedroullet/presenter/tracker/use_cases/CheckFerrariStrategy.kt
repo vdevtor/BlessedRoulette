@@ -23,9 +23,16 @@ class CheckFerrariStrategy {
         val leftNeighbor = (firstNumber.number.toInt() -1).toString()
         val rightNeighbor = (firstNumber.number.toInt() +1).toString()
 
-        val playableNumbers = provideRouletteNumbers().filter {
-            (it.number == leftNeighbor).or(it.number == rightNeighbor)
+        val filteredList = provideRouletteNumbers().filter {
+            it.number == leftNeighbor || it.number == rightNeighbor
+        }.let {
+            it.flatMap { it.closestNeighbors }
         }
+
+        val playableNumbers = provideRouletteNumbers().filter {
+                filteredList.contains(it.number)
+        }
+
 
         return RouletteStrategy(
             strategyTitle = "Ferrari",

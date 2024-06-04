@@ -40,6 +40,10 @@ class TrackerScreenViewModel @Inject constructor(
                 state = state.copy(lastSelectedNumbers = rouletteStepList)
                 analyzeAvailableStrategies()
             }
+
+            is TrackerScreenEvents.OnNewStrategySelected->{
+                state = state.copy(lastStrategy = event.strategy)
+            }
         }
     }
 

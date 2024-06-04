@@ -63,7 +63,7 @@ fun TrackerScreen(
                     .fillMaxSize()
                     .background(color = BackgroundColor)
             ) {
-                TrackerHeader(lastSelectedNumbers = state.lastSelectedNumbers)
+                TrackerHeader(lastSelectedNumbers = state.lastSelectedNumbers, lastStrategy = state.lastStrategy)
                 HeaderTitle(
                     text = "Estratégias Disponíveis",
                     modifier = Modifier.align(Alignment.CenterHorizontally)
@@ -73,7 +73,9 @@ fun TrackerScreen(
                     availableStrategies = state.availableStrategies,
                     modifier = Modifier
                         .padding(LocalSpacing.current.spaceMedium)
-                )
+                ){
+                    viewModel.onEvent(TrackerScreenEvents.OnNewStrategySelected(it))
+                }
             }
         }
     }
@@ -99,7 +101,7 @@ fun TrackerScreenPreviewlable() {
         ) {
 
             //Header
-            TrackerHeader(lastSelectedNumbers = emptyList())
+            TrackerHeader(lastSelectedNumbers = emptyList(),null)
             //Title
             HeaderTitle(
                 text = "Estratégias Disponíveis",
@@ -110,7 +112,7 @@ fun TrackerScreenPreviewlable() {
                 availableStrategies = provideRouletteStrategy(),
                 modifier = Modifier
                     .padding(LocalSpacing.current.spaceMedium)
-            )
+            ){}
         }
     }
 }

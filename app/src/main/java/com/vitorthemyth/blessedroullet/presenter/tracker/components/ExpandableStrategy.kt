@@ -12,6 +12,8 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Button
 import androidx.compose.material.Card
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Icon
@@ -30,7 +32,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -48,7 +49,8 @@ import com.vitorthemyth.blessedroullet.ui.values.LocalSpacing
 @Composable
 fun ExpandableStrategy(
     modifier: Modifier = Modifier,
-    strategy: RouletteStrategy
+    strategy: RouletteStrategy,
+    onStrategySelected : (RouletteStrategy) -> Unit
 ) {
 
     val spacing = LocalSpacing.current
@@ -86,7 +88,11 @@ fun ExpandableStrategy(
                     .fillMaxWidth()
                     .padding(spacing.spaceSmall)
             ) {
-                HeaderTitle(text = strategy.strategyTitle, modifier = Modifier, color = strategy.textColor)
+                HeaderTitle(
+                    text = strategy.strategyTitle,
+                    modifier = Modifier,
+                    color = strategy.textColor
+                )
                 IconButton(
                     modifier = Modifier
                         .rotate(rotationState),
@@ -107,11 +113,15 @@ fun ExpandableStrategy(
             if (expandedState) {
 
                 Row(
-                    modifier = Modifier.padding(spacing.spaceIntermediate).fillMaxWidth()
+                    modifier = Modifier
+                        .padding(spacing.spaceIntermediate)
+                        .fillMaxWidth()
                 ) {
                     FlowRow(
                         maxItemsInEachRow = 4,
-                        modifier = Modifier.padding(start = spacing.spaceIntermediate).weight(.4f)
+                        modifier = Modifier
+                            .padding(start = spacing.spaceIntermediate)
+                            .weight(.4f)
                     ) {
                         strategy.playableNumbers.forEach { rouletteNumber ->
                             HeaderSelectedNumber(
@@ -131,7 +141,9 @@ fun ExpandableStrategy(
                         fontFamily = FontFamily.Default,
                         color = strategy.textColor,
                         textAlign = TextAlign.Center,
-                        modifier = Modifier.weight(.7f).padding(spacing.spaceExtraSmall)
+                        modifier = Modifier
+                            .weight(.7f)
+                            .padding(spacing.spaceExtraSmall)
                     )
                 }
 
@@ -181,7 +193,7 @@ fun ExpandableStrategy(
 
                         Text(
                             text = when (strategy.playableDozen) {
-                                      Dozen.none ->   ""
+                                Dozen.none -> ""
                                 else -> strategy.playableDozen.order
                             },
                             fontSize = 14.sp,
@@ -190,6 +202,16 @@ fun ExpandableStrategy(
                             modifier = modifier.align(Alignment.CenterHorizontally)
                         )
                     }
+                }
+
+                Button(
+                    onClick = { onStrategySelected(strategy) },
+                    modifier = Modifier
+                        .align(Alignment.End)
+                        .padding(end = 10.dp),
+                    shape = RoundedCornerShape(8.dp),
+                ) {
+                    Text(text = "Selecionar")
                 }
 
             }
@@ -210,5 +232,5 @@ private fun Preview() {
             placeBetOnLowNumber = false,
             strategyType = StrategyType.ticTac
         )
-    )
+    ){}
 }
