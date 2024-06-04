@@ -47,9 +47,14 @@ class TrackerScreenViewModel @Inject constructor(
         rouletteStrategiesStepList.clear()
 
         state.lastSelectedNumbers.let {lastSelectedNumbers->
+
           trackerUseCases.checkTicTacStrategy(lastSelectedNumbers).takeIf { it != null }?.let {
               rouletteStrategiesStepList.add(it)
           }
+
+            trackerUseCases.checkFerrariStrategy(lastSelectedNumbers).takeIf { it != null }?.let {
+                rouletteStrategiesStepList.add(it)
+            }
         }
 
         state = state.copy(availableStrategies = rouletteStrategiesStepList.toMutableList())

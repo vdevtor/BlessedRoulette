@@ -11,5 +11,11 @@ data class RouletteStrategy(
     val playableDozen: Dozen,
     val placeBetOnHighNumber: Boolean = false,
     val placeBetOnLowNumber: Boolean = false,
-    val cardBackGroundColor : Color = Color.Yellow
+    val cardBackGroundColor : Color = Color.Yellow,
+    val strategyType: StrategyType = StrategyType.none,
+    val textColor :  Color = Color.Black
 )
+
+enum class StrategyType{
+    ticTac,ferrari,none
+}

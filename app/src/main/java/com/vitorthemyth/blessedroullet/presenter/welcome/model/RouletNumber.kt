@@ -10,6 +10,6 @@ data class RouletteNumber(
     val isHigherNumber : Boolean
 )
 
-enum class Dozen{
-    first,second,third,none
+enum class Dozen(val order:String){
+    first("1°"),second("2°"),third("3°"),none("")
 }

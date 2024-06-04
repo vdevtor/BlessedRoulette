@@ -54,7 +54,7 @@ fun provideRouletteStrategy() = listOf(
             RouletteNumber(number = "34", color = Color.Red, isEven = true, dozen = Dozen.third, isHigherNumber = true)),
         playableDozen = Dozen.second,
         placeBetOnHighNumber = true,
-        placeBetOnLowNumber = false
+        placeBetOnLowNumber = false,
     ),
     RouletteStrategy(
         strategyTitle = "Vizinhos",
