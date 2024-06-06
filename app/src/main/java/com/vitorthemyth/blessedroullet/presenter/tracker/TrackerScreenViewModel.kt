@@ -67,6 +67,20 @@ class TrackerScreenViewModel @Inject constructor(
             trackerUseCases.checkOneByOneStrategy(lastSelectedNumbers).takeIf { it != null }?.let {
                 rouletteStrategiesStepList.add(it)
             }
+
+            trackerUseCases.checkExtremeStrategy(lastSelectedNumbers).takeIf { it != null }?.let {
+                rouletteStrategiesStepList.add(it)
+            }
+
+            trackerUseCases.checkMirrorStrategy(lastSelectedNumbers).takeIf { it != null }?.let {
+                rouletteStrategiesStepList.add(it)
+            }
+            trackerUseCases.checkArcherStrategy(lastSelectedNumbers).takeIf { it != null }?.let {
+                rouletteStrategiesStepList.add(it)
+            }
+            trackerUseCases.checkBugattiStrategy(lastSelectedNumbers).takeIf { it != null }?.let {
+                rouletteStrategiesStepList.add(it)
+            }
         }
 
         state = state.copy(availableStrategies = rouletteStrategiesStepList.toMutableList())

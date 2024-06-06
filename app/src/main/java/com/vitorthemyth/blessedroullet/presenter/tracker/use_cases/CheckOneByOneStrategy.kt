@@ -16,7 +16,7 @@ class CheckOneByOneStrategy {
         val firstNumber = list[0]
         val secondNumber = list[1]
 
-        val hasTermination = secondNumber.number.contains(firstNumber.number.last())
+        val hasTermination = secondNumber.number.contains(firstNumber.number.toCharArray().last())
 
         if (!hasTermination) return null
 
@@ -24,7 +24,7 @@ class CheckOneByOneStrategy {
         val rightNeighbor = (firstNumber.number.toInt() +1).toString()
 
         val playableNumbers = provideRouletteNumbers().filter {
-            it.number.last() == leftNeighbor.last() || it.number.last() == rightNeighbor.last()
+            it.number.toCharArray().last() == leftNeighbor.toCharArray().last() || it.number.toCharArray().last() == rightNeighbor.toCharArray().last()
         }
 
 

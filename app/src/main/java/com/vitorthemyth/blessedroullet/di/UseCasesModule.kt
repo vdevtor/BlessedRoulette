@@ -1,7 +1,11 @@
 package com.vitorthemyth.blessedroullet.di
 
+import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.CheckArcherStrategy
+import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.CheckBugattiStrategy
 import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.CheckEvenOddStrategy
+import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.CheckExtremeStrategy
 import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.CheckFerrariStrategy
+import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.CheckMirrorStrategy
 import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.CheckOneByOneStrategy
 import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.CheckTicTacStrategy
 import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.TrackerUseCases
@@ -24,7 +28,11 @@ internal object UseCasesModule {
             checkTicTacStrategy = CheckTicTacStrategy(),
             checkFerrariStrategy = CheckFerrariStrategy(),
             checkEvenOddStrategy = CheckEvenOddStrategy(),
-            checkOneByOneStrategy = CheckOneByOneStrategy()
+            checkOneByOneStrategy = CheckOneByOneStrategy(),
+            checkExtremeStrategy = CheckExtremeStrategy(),
+            checkMirrorStrategy = CheckMirrorStrategy(),
+            checkArcherStrategy = CheckArcherStrategy(),
+            checkBugattiStrategy = CheckBugattiStrategy()
         )
     }
 }
