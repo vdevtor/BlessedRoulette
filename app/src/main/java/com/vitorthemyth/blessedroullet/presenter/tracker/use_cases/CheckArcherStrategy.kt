@@ -23,10 +23,14 @@ class CheckArcherStrategy {
 
         if (!isValidSequence) return null
 
-        val playableNumbers = provideRouletteNumbers().filter {
+        val leadNumber = provideRouletteNumbers().find {
             it.rouletteQuarter.quarterOrder.position != firstNumberPosition
                     &&  it.rouletteQuarter.quarterOrder.position != secondNumberPosition
                     && it.rouletteQuarter.quarterOrder.position != thirdNumberPosition
+        } ?: provideRouletteNumbers().first()
+
+        val playableNumbers = provideRouletteNumbers().filter {
+            it.number == leadNumber.rouletteQuarter.quarterMirrorNumber
         }
 
         return RouletteStrategy(
@@ -54,13 +58,19 @@ class CheckArcherStrategy {
         } else false
 
     private fun isValidFirstNumberNumber(firstNumberPosition: Int, thirdNumberPosition: Int) =
-        if (firstNumberPosition == 1) {
-            thirdNumberPosition == 3
-        } else if (firstNumberPosition == 2) {
-            thirdNumberPosition == 4
-        } else if (firstNumberPosition == 3) {
-            thirdNumberPosition == 1
-        } else if (firstNumberPosition == 4) {
-            thirdNumberPosition == 2
-        } else false
+        when (firstNumberPosition) {
+            1 -> {
+                thirdNumberPosition == 3
+            }
+            2 -> {
+                thirdNumberPosition == 4
+            }
+            3 -> {
+                thirdNumberPosition == 1
+            }
+            4 -> {
+                thirdNumberPosition == 2
+            }
+            else -> false
+        }
 }

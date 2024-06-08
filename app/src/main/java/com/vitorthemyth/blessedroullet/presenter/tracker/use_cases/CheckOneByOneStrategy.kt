@@ -16,7 +16,7 @@ class CheckOneByOneStrategy {
         val firstNumber = list[0]
         val secondNumber = list[1]
 
-        val hasTermination = secondNumber.number.contains(firstNumber.number.toCharArray().last())
+        val hasTermination = secondNumber.number.toCharArray().last().toString().contains(firstNumber.number.toCharArray().last())
 
         if (!hasTermination) return null
 
