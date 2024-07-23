@@ -37,7 +37,8 @@ fun BlessedRoulletTheme(
 
     CompositionLocalProvider(
         LocalSpacing provides(Dimensions()),
-        LocalTextDimensions provides(TextDimensions()) ) {
+        LocalTextDimensions provides(TextDimensions())
+    ) {
         MaterialTheme(
             colors = colorScheme,
             typography = Typography,

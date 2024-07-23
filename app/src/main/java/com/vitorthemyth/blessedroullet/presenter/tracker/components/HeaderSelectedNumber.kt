@@ -23,7 +23,6 @@ import androidx.compose.ui.unit.dp
 import com.vitorthemyth.blessedroullet.ui.theme.MyTypography
 import com.vitorthemyth.blessedroullet.ui.values.LocalTextDimensions
 
-
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun HeaderSelectedNumber(
@@ -33,18 +32,17 @@ fun HeaderSelectedNumber(
 ) {
     val textDimensions = LocalTextDimensions.current
 
-
-    Box(modifier = Modifier
-        .semantics{ contentDescription = "SelectedNumberChip"}
-        .width(30.dp)
-        .height(30.dp)
-        .wrapContentHeight()
-        .combinedClickable(
-            onLongClick = { onLongClick(number) },
-            onClick = { onLongClick(number) }
-        )
+    Box(
+        modifier = Modifier
+            .semantics { contentDescription = "SelectedNumberChip" }
+            .width(30.dp)
+            .height(30.dp)
+            .wrapContentHeight()
+            .combinedClickable(
+                onLongClick = { onLongClick(number) },
+                onClick = { onLongClick(number) }
+            )
     ) {
-
         Column(
             modifier = Modifier
                 .width(25.dp)
@@ -55,7 +53,7 @@ fun HeaderSelectedNumber(
                 )
                 .align(Alignment.Center),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center,
+            verticalArrangement = Arrangement.Center
         ) {
             Text(
                 text = number,
@@ -63,12 +61,11 @@ fun HeaderSelectedNumber(
                     color = Color.White,
                     fontSize = textDimensions.textMedium
                 ),
-                textAlign = TextAlign.Center,
+                textAlign = TextAlign.Center
             )
         }
     }
 }
-
 
 @Preview
 @Composable
@@ -77,6 +74,5 @@ private fun SelectedNumberChipPreview() {
         number = "33",
         color = Color.Red
     ) {
-
     }
 }

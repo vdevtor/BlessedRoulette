@@ -12,43 +12,44 @@ import com.vitorthemyth.blessedroullet.presenter.welcome.model.RouletteNumber
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
-
 @HiltViewModel
 class TrackerScreenViewModel @Inject constructor(
     private val preferences: Preferences,
     private val trackerUseCases: TrackerUseCases
 ) : ViewModel() {
 
-    var state by mutableStateOf(TrackerScreenState().copy(
-        lastSelectedNumbers = preferences.getLastSortedNumbers()
-    ))
+    var state by mutableStateOf(
+        TrackerScreenState().copy(
+            lastSelectedNumbers = preferences.getLastSortedNumbers()
+        )
+    )
         private set
 
-    private var rouletteStepList : MutableList<RouletteNumber> = mutableListOf()
-    private var rouletteStrategiesStepList : MutableList<RouletteStrategy> = mutableListOf()
+    private var rouletteStepList: MutableList<RouletteNumber> = mutableListOf()
+    private var rouletteStrategiesStepList: MutableList<RouletteStrategy> = mutableListOf()
 
     init {
         analyzeAvailableStrategies()
     }
 
-    fun onEvent(event: TrackerScreenEvents){
-        when(event){
-            is TrackerScreenEvents.OnNewNumberSelected->{
+    fun onEvent(event: TrackerScreenEvents) {
+        when (event) {
+            is TrackerScreenEvents.OnNewNumberSelected -> {
                 rouletteStepList = state.lastSelectedNumbers.toMutableList().also {
                     it.removeLast()
-                    it.add(0,event.number)
+                    it.add(0, event.number)
                 }
                 state = state.copy(lastSelectedNumbers = rouletteStepList)
                 analyzeAvailableStrategies()
             }
 
-            is TrackerScreenEvents.OnNewStrategySelected->{
+            is TrackerScreenEvents.OnNewStrategySelected -> {
                 state = state.copy(lastStrategy = event.strategy)
             }
         }
     }
 
-    private fun analyzeAvailableStrategies(){
+    private fun analyzeAvailableStrategies() {
         rouletteStrategiesStepList.clear()
 
         state.lastSelectedNumbers.let {lastSelectedNumbers->

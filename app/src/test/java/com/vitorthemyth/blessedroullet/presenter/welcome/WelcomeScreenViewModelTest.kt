@@ -34,7 +34,7 @@ class WelcomeScreenViewModelTest {
     val instantTaskExecutorRule = InstantTaskExecutorRule()
 
     private lateinit var viewModel: WelcomeScreenViewModel
-    private  val preferences: Preferences = mockk()
+    private val preferences: Preferences = mockk()
 
     private val testDispatcher = UnconfinedTestDispatcher()
     private val testScope = TestScope(testDispatcher)
@@ -48,7 +48,7 @@ class WelcomeScreenViewModelTest {
     )
 
     @Before
-    fun setup(){
+    fun setup() {
         MockitoAnnotations.initMocks(this)
         Dispatchers.setMain(testDispatcher)
         viewModel = WelcomeScreenViewModel(
@@ -62,8 +62,7 @@ class WelcomeScreenViewModelTest {
     }
 
     @Test
-    fun `verify WelcomeEvents OnNumberSelected is being performed`() = testScope.runTest{
-
+    fun `verify WelcomeEvents OnNumberSelected is being performed`() = testScope.runTest {
         viewModel.onEvent(WelcomeEvents.OnNumberSelected(rouletteNumber))
         assertThat(viewModel.state.selectedNumbers.size).isEqualTo(1)
         assertThat(viewModel.state.selectedNumbers).contains(rouletteNumber)
@@ -71,14 +70,12 @@ class WelcomeScreenViewModelTest {
 
     @Test
     fun `verify WelcomeEvents OnNumberRemoved is being performed`() = testScope.runTest {
-
         viewModel.onEvent(WelcomeEvents.OnNumberSelected(rouletteNumber))
         assertThat(viewModel.state.selectedNumbers.size).isEqualTo(1)
 
         viewModel.onEvent(WelcomeEvents.OnNumberRemoved(rouletteNumber))
         assertThat(viewModel.state.selectedNumbers.size).isEqualTo(0)
         assertThat(viewModel.state.selectedNumbers).doesNotContain(rouletteNumber)
-
     }
 
     @Test

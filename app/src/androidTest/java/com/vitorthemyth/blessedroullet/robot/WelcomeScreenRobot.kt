@@ -11,13 +11,11 @@ import androidx.compose.ui.test.performScrollToNode
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import com.vitorthemyth.blessedroullet.MainActivity
 
-
 typealias BlessedComposeRule = AndroidComposeTestRule<ActivityScenarioRule<MainActivity>, MainActivity>
 
 class WelcomeScreenRobot(
     private val composeRule: BlessedComposeRule
 ) {
-
 
     fun performScrollToLoadContent(number: String): WelcomeScreenRobot {
         composeRule
@@ -27,14 +25,12 @@ class WelcomeScreenRobot(
         return this
     }
 
-
     fun clickOnNumber(number: String): WelcomeScreenRobot {
         composeRule
-            .onNodeWithText(number)
+            .onNode(hasContentDescription("SelectNumberChip").and(hasText(number)))
             .performClick()
         return this
     }
-
 
     fun clickOnNumberToRemove(number: String): WelcomeScreenRobot {
         composeRule
@@ -44,9 +40,10 @@ class WelcomeScreenRobot(
     }
 
     fun completeSelectedNumbers(): WelcomeScreenRobot {
-        val listOfNumbers = listOf("11", "9", "34", "14")
+        val listOfNumbers = listOf("33", "27", "30")
         listOfNumbers.forEach { clickOnNumber(it) }
         performScrollToLoadContent("1")
+        clickOnNumber("8")
         clickOnNumber("5")
         return this
     }
