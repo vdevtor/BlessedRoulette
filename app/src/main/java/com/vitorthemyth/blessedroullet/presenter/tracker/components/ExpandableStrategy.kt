@@ -55,7 +55,7 @@ fun ExpandableStrategy(
 
     val spacing = LocalSpacing.current
 
-    var expandedState by remember { mutableStateOf(false) }
+    var expandedState by remember(key1 = strategy) { mutableStateOf(false) }
 
     val rotationState by animateFloatAsState(
         targetValue = if (expandedState) 180f else 0f, label = ""
