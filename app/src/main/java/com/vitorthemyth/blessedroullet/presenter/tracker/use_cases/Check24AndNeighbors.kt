@@ -15,7 +15,7 @@ class Check24AndNeighbors {
     operator fun invoke(list: List<RouletteNumber>): RouletteStrategy? {
         if (list.size < 2) return null
 
-        val triggerNumber = list.find { it.number == "4"} ?: return null
+        val triggerNumber = list.find { it.number == "4" } ?: return null
         val triggerIndex = list.indexOf(triggerNumber)
         val targetNumber = provideRouletteNumbers().find { it.number == "24" }
         val targetNumberNeighbors = targetNumber?.closestNeighbors ?: return null

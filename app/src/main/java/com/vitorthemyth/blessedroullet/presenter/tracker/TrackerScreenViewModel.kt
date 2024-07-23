@@ -6,7 +6,6 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import com.vitorthemyth.blessedroullet.core.preferences.Preferences
 import com.vitorthemyth.blessedroullet.presenter.tracker.model.RouletteStrategy
-import com.vitorthemyth.blessedroullet.presenter.tracker.model.StrategyTag
 import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.TrackerUseCases
 import com.vitorthemyth.blessedroullet.presenter.welcome.model.RouletteNumber
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -52,18 +51,18 @@ class TrackerScreenViewModel @Inject constructor(
     private fun analyzeAvailableStrategies() {
         rouletteStrategiesStepList.clear()
 
-        state.lastSelectedNumbers.let {lastSelectedNumbers->
-            //standard strategies
+        state.lastSelectedNumbers.let { lastSelectedNumbers ->
+            // standard strategies
             analyzeStandardStrategies(lastSelectedNumbers)
 
-            //Premium strategies
+            // Premium strategies
             analyzePremiumStrategies(lastSelectedNumbers)
         }
 
         state = state.copy(availableStrategies = rouletteStrategiesStepList.toMutableList().sortedByDescending { it.tag })
     }
 
-    private fun analyzeStandardStrategies(lastSelectedNumbers: List<RouletteNumber>){
+    private fun analyzeStandardStrategies(lastSelectedNumbers: List<RouletteNumber>) {
         trackerUseCases.checkTicTacStrategy(lastSelectedNumbers).takeIf { it != null }?.let {
             rouletteStrategiesStepList.add(it)
         }
@@ -93,10 +92,9 @@ class TrackerScreenViewModel @Inject constructor(
         trackerUseCases.checkBugattiStrategy(lastSelectedNumbers).takeIf { it != null }?.let {
             rouletteStrategiesStepList.add(it)
         }
-
     }
 
-    private fun analyzePremiumStrategies(lastSelectedNumbers: List<RouletteNumber>){
+    private fun analyzePremiumStrategies(lastSelectedNumbers: List<RouletteNumber>) {
         trackerUseCases.check30AndNeighbors(lastSelectedNumbers).takeIf { it != null }?.let {
             rouletteStrategiesStepList.add(it)
         }

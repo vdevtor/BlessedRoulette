@@ -8,7 +8,6 @@ import com.vitorthemyth.blessedroullet.presenter.tracker.model.StrategyType
 import com.vitorthemyth.blessedroullet.presenter.welcome.model.Dozen
 import com.vitorthemyth.blessedroullet.presenter.welcome.model.RouletteNumber
 import com.vitorthemyth.blessedroullet.ui.theme.lightBlack
-import com.vitorthemyth.blessedroullet.ui.theme.onBackgroundColor
 import com.vitorthemyth.blessedroullet.ui.theme.yellowColor
 
 class Check14AndNeighbors {
@@ -16,7 +15,7 @@ class Check14AndNeighbors {
     operator fun invoke(list: List<RouletteNumber>): RouletteStrategy? {
         if (list.size < 2) return null
 
-        val triggerNumber = list.find { it.number == "34"} ?: return null
+        val triggerNumber = list.find { it.number == "34" } ?: return null
         val triggerIndex = list.indexOf(triggerNumber)
         val targetNumber = provideRouletteNumbers().find { it.number == "14" }
         val targetNumberNeighbors = targetNumber?.closestNeighbors ?: return null
@@ -24,7 +23,6 @@ class Check14AndNeighbors {
         val newList = list.filterIndexed { index, _ ->
             index < triggerIndex
         }
-
 
         if (isStrategyExpired(targetNumberNeighbors, newList.map { it.number })) {
             return null

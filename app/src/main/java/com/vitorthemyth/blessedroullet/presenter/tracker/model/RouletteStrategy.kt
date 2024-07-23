@@ -13,11 +13,11 @@ data class RouletteStrategy(
     val placeBetOnLowNumber: Boolean = false,
     val cardBackGroundColor: Color = Color.Yellow,
     val strategyType: StrategyType = StrategyType.none,
-    val textColor :  Color = Color.Black,
-    val tag : StrategyTag = StrategyTag.standard
+    val textColor: Color = Color.Black,
+    val tag: StrategyTag = StrategyTag.standard
 )
 
-enum class StrategyType{
+enum class StrategyType {
     ticTac,
     ferrari,
     evenOdd,
@@ -40,8 +40,7 @@ enum class StrategyType{
     twentyThreeAndNeighbors,
     thirtyThreeAndNeighbors,
     none
-
 }
-enum class StrategyTag{
-    standard,premium
+enum class StrategyTag {
+    standard, premium
 }

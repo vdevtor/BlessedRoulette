@@ -91,7 +91,6 @@ class WelcomeScreenViewModelTest {
 
     @Test
     fun `verify Snackbar event when more than 11 numbers are selected`() = testScope.runTest {
-
         viewModel.uiEvent.test {
             repeat(11) {
                 viewModel.onEvent(WelcomeEvents.OnNumberSelected(rouletteNumber))
