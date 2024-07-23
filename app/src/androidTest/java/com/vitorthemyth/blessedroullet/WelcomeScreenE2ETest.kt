@@ -26,12 +26,12 @@ class WelcomeScreenE2ETest {
     fun testSelectableNumbers() {
         WelcomeScreenRobot(composeRule)
             .performScrollToLoadContent("33")
-            .clickOnNumber("22")
-            .clickOnNumber("12")
-            .clickOnNumber("36")
+            .clickOnNumber("28")
+            .clickOnNumber("29")
+            .clickOnNumber("30")
             .assertThatButtonIsNotEnabled()
-            .clickOnNumberToRemove("12")
-            .assertNumberWasRemoved("12")
+            .clickOnNumberToRemove("30")
+            .assertNumberWasRemoved("30")
             .completeSelectedNumbers()
             .assertThatButtonIsEnabled()
     }

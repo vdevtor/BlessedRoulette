@@ -40,10 +40,10 @@ class WelcomeScreenRobot(
     }
 
     fun completeSelectedNumbers(): WelcomeScreenRobot {
-        val listOfNumbers = listOf("14", "34", "14")
+        val listOfNumbers = listOf("33", "27", "30")
         listOfNumbers.forEach { clickOnNumber(it) }
         performScrollToLoadContent("1")
-        clickOnNumber("11")
+        clickOnNumber("8")
         clickOnNumber("5")
         return this
     }
