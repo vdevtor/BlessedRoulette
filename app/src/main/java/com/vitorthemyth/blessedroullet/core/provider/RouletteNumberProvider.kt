@@ -93,3 +93,7 @@ fun provideRouletteFourthQuarter() = RouletteQuarter(
     quarterMirrorNumber = "34",
     quarterOrder = QuarterOrder.fourth
 )
+
+fun isStrategyExpired(neighbours: List<String>?, currentList: List<String>): Boolean {
+    return neighbours?.any { it in currentList } ?: true
+}

@@ -1,6 +1,7 @@
 package com.vitorthemyth.blessedroullet.presenter.welcome.model
 
 import androidx.compose.ui.graphics.Color
+import com.vitorthemyth.blessedroullet.presenter.tracker.model.StrategyType
 
 data class RouletteNumber(
     val number : String,
@@ -9,7 +10,7 @@ data class RouletteNumber(
     val dozen : Dozen,
     val isHigherNumber : Boolean,
     val closestNeighbors : List<String> = emptyList(),
-    val rouletteQuarter : RouletteQuarter = RouletteQuarter(),
+    val rouletteQuarter : RouletteQuarter = RouletteQuarter()
 )
 
 data class RouletteQuarter(

@@ -1,5 +1,18 @@
 package com.vitorthemyth.blessedroullet.di
 
+import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.Check13AndNeighbors
+import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.Check14AndNeighbors
+import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.Check17AndNeighbors
+import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.Check20AndNeighbors
+import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.Check21AndNeighbors
+import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.Check22AndNeighbors
+import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.Check23AndNeighbors
+import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.Check24AndNeighbors
+import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.Check26AndNeighbors
+import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.Check27AndNeighbors
+import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.Check30AndNeighbors
+import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.Check33AndNeighbors
+import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.Check3AndNeighbors
 import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.CheckArcherStrategy
 import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.CheckBugattiStrategy
 import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.CheckEvenOddStrategy
@@ -32,7 +45,20 @@ internal object UseCasesModule {
             checkExtremeStrategy = CheckExtremeStrategy(),
             checkMirrorStrategy = CheckMirrorStrategy(),
             checkArcherStrategy = CheckArcherStrategy(),
-            checkBugattiStrategy = CheckBugattiStrategy()
+            checkBugattiStrategy = CheckBugattiStrategy(),
+            check30AndNeighbors = Check30AndNeighbors(),
+            check17AndNeighbors = Check17AndNeighbors(),
+            check22AndNeighbors = Check22AndNeighbors(),
+            check20AndNeighbors = Check20AndNeighbors(),
+            check3AndNeighbors = Check3AndNeighbors(),
+            check13AndNeighbors = Check13AndNeighbors(),
+            check26AndNeighbors = Check26AndNeighbors(),
+            check14AndNeighbors = Check14AndNeighbors(),
+            check27AndNeighbors = Check27AndNeighbors(),
+            check24AndNeighbors = Check24AndNeighbors(),
+            check23AndNeighbors = Check23AndNeighbors(),
+            check33AndNeighbors = Check33AndNeighbors(),
+            check21AndNeighbors = Check21AndNeighbors()
         )
     }
 }
