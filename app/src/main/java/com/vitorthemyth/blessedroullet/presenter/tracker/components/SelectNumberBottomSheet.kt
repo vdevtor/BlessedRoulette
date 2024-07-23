@@ -22,7 +22,6 @@ import com.vitorthemyth.blessedroullet.presenter.welcome.model.RouletteNumber
 import com.vitorthemyth.blessedroullet.ui.theme.BackgroundColor
 import com.vitorthemyth.blessedroullet.ui.values.LocalSpacing
 
-
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun SelectNumberBottomSheet(
@@ -31,21 +30,23 @@ fun SelectNumberBottomSheet(
 ) {
     val spacing = LocalSpacing.current
     Column(
-            modifier = modifier.fillMaxWidth().background(color = BackgroundColor)
+        modifier = modifier.fillMaxWidth().background(color = BackgroundColor)
     ) {
         HeaderSubtitle(
-                text = "Adicione o último número \nsorteado",
-                modifier = modifier.padding(spacing.spaceSmall),
-                textColor = Color.Black
+            text = "Adicione o último número \nsorteado",
+            modifier = modifier.padding(spacing.spaceSmall),
+            textColor = Color.Black
         )
 
         Spacer(modifier = modifier.height(spacing.spaceMedium))
 
         FlowRow(
-                modifier = modifier.fillMaxWidth().padding(spacing.spaceSmall),
-                maxItemsInEachRow = 5,
-                horizontalArrangement = Arrangement.spacedBy(spacing.spaceMedium,
-                        alignment = Alignment.CenterHorizontally)
+            modifier = modifier.fillMaxWidth().padding(spacing.spaceSmall),
+            maxItemsInEachRow = 5,
+            horizontalArrangement = Arrangement.spacedBy(
+                spacing.spaceMedium,
+                alignment = Alignment.CenterHorizontally
+            )
 
         ) {
             provideRouletteNumbers().forEach {
@@ -54,15 +55,13 @@ fun SelectNumberBottomSheet(
                     color = it.color,
                     boxSize = 45.dp,
                     ballSize = 40.dp
-                ) { number->
-                    provideRouletteNumbers().find {it.number == number  }?.let(onNumberClicked)
+                ) { number ->
+                    provideRouletteNumbers().find { it.number == number }?.let(onNumberClicked)
                 }
             }
         }
-
     }
 }
-
 
 @Preview
 @Composable

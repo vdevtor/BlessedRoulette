@@ -11,35 +11,33 @@ import com.vitorthemyth.blessedroullet.ui.values.LocalTextDimensions
 
 @Composable
 fun AvailableNumber(
-        rouletteNumber: RouletteNumber,
-        modifier: Modifier,
-        onClicked: (RouletteNumber) -> Unit
+    rouletteNumber: RouletteNumber,
+    modifier: Modifier,
+    onClicked: (RouletteNumber) -> Unit
 ) {
     val textDimensions = LocalTextDimensions.current
     RouletteNumber(
-            number = rouletteNumber.number,
-            color = rouletteNumber.color,
-            boxSize = 60.dp,
-            ballSize = 55.dp,
-            textSize = textDimensions.textExtraLarge
+        number = rouletteNumber.number,
+        color = rouletteNumber.color,
+        boxSize = 60.dp,
+        ballSize = 55.dp,
+        textSize = textDimensions.textExtraLarge
     ) {
         onClicked(rouletteNumber)
     }
 }
 
-
 @Preview
 @Composable
 private fun Preview() {
     AvailableNumber(
-            rouletteNumber = RouletteNumber(
-                    number = "22",
-                    color = Color.Black,
-                    isEven = false,
-                    dozen = Dozen.second,
-                    isHigherNumber = false
-            ),
-            modifier = Modifier
+        rouletteNumber = RouletteNumber(
+            number = "22",
+            color = Color.Black,
+            isEven = false,
+            dozen = Dozen.second,
+            isHigherNumber = false
+        ),
+        modifier = Modifier
     ) {}
-
 }

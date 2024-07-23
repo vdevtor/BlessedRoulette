@@ -15,15 +15,13 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
 import dagger.hilt.android.scopes.ViewModelScoped
 
-
 @Module
 @InstallIn(ViewModelComponent::class)
-
 internal object UseCasesModule {
 
     @Provides
     @ViewModelScoped
-    fun providesTrackerUseCases() : TrackerUseCases{
+    fun providesTrackerUseCases(): TrackerUseCases {
         return TrackerUseCases(
             checkTicTacStrategy = CheckTicTacStrategy(),
             checkFerrariStrategy = CheckFerrariStrategy(),

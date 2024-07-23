@@ -20,13 +20,13 @@ class CheckMirrorStrategy {
         val currentQuarter = firstNumber.rouletteQuarter.quarterOrder
 
         val isSameQuarter = (secondNumber.rouletteQuarter.quarterOrder == currentQuarter)
-                .and(thirdNumber.rouletteQuarter.quarterOrder == currentQuarter)
+            .and(thirdNumber.rouletteQuarter.quarterOrder == currentQuarter)
 
         if (!isSameQuarter) return null
 
         val mirrorNumber = firstNumber.rouletteQuarter.quarterMirrorNumber
 
-        val  playableNumbers = provideRouletteNumbers()
+        val playableNumbers = provideRouletteNumbers()
             .find { it.number == mirrorNumber }
             ?.let { number ->
                 provideRouletteNumbers().filter {
@@ -45,6 +45,5 @@ class CheckMirrorStrategy {
             strategyType = StrategyType.mirror,
             textColor = Color.White
         )
-
     }
 }

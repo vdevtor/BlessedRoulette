@@ -10,7 +10,7 @@ import com.vitorthemyth.blessedroullet.ui.theme.GreenColor
 
 class CheckEvenOddStrategy {
 
-    operator fun invoke(list: List<RouletteNumber>) : RouletteStrategy? {
+    operator fun invoke(list: List<RouletteNumber>): RouletteStrategy? {
         if (list.size < 2) return null
 
         val firstNumber = list[0]
@@ -24,7 +24,7 @@ class CheckEvenOddStrategy {
         if ((!isEven && !isOdd) || (!isHigh && !isLow)) return null
 
         val playableNumbers = when {
-            isEven && isHigh -> provideRouletteNumbers().filter { !it.isHigherNumber && (it.number.toInt() % 2 != 0)}
+            isEven && isHigh -> provideRouletteNumbers().filter { !it.isHigherNumber && (it.number.toInt() % 2 != 0) }
             isOdd && isLow -> provideRouletteNumbers().filter { it.isHigherNumber && (it.number.toInt() % 2 == 0) }
             isOdd && isHigh -> provideRouletteNumbers().filter { !it.isHigherNumber && (it.number.toInt() % 2 == 0) }
             isEven && isLow -> provideRouletteNumbers().filter { it.isHigherNumber && (it.number.toInt() % 2 != 0) }

@@ -50,15 +50,15 @@ import com.vitorthemyth.blessedroullet.ui.values.LocalSpacing
 fun ExpandableStrategy(
     modifier: Modifier = Modifier,
     strategy: RouletteStrategy,
-    onStrategySelected : (RouletteStrategy) -> Unit
+    onStrategySelected: (RouletteStrategy) -> Unit
 ) {
-
     val spacing = LocalSpacing.current
 
-    var expandedState by remember { mutableStateOf(false) }
+    var expandedState by remember(key1 = strategy) { mutableStateOf(false) }
 
     val rotationState by animateFloatAsState(
-        targetValue = if (expandedState) 180f else 0f, label = ""
+        targetValue = if (expandedState) 180f else 0f,
+        label = ""
     )
 
     Card(
@@ -107,11 +107,9 @@ fun ExpandableStrategy(
                         tint = strategy.textColor
                     )
                 }
-
             }
 
             if (expandedState) {
-
                 Row(
                     modifier = Modifier
                         .padding(spacing.spaceIntermediate)
@@ -128,7 +126,6 @@ fun ExpandableStrategy(
                                 number = rouletteNumber.number,
                                 color = rouletteNumber.color,
                                 onLongClick = { _ ->
-
                                 }
                             )
                         }
@@ -162,8 +159,11 @@ fun ExpandableStrategy(
                             textAlign = TextAlign.Center
                         )
                         Icon(
-                            imageVector = if (strategy.placeBetOnHighNumber) Icons.Default.CheckCircle else
-                                Icons.Default.Clear,
+                            imageVector = if (strategy.placeBetOnHighNumber) {
+                                Icons.Default.CheckCircle
+                            } else {
+                                Icons.Default.Clear
+                            },
                             contentDescription = "visual icon hint for place bet",
                             modifier.align(Alignment.CenterHorizontally)
                         )
@@ -177,8 +177,11 @@ fun ExpandableStrategy(
                             textAlign = TextAlign.Center
                         )
                         Icon(
-                            imageVector = if (strategy.placeBetOnLowNumber) Icons.Default.CheckCircle else
-                                Icons.Default.Clear,
+                            imageVector = if (strategy.placeBetOnLowNumber) {
+                                Icons.Default.CheckCircle
+                            } else {
+                                Icons.Default.Clear
+                            },
                             contentDescription = "visual icon hint for place bet",
                             modifier.align(Alignment.CenterHorizontally)
                         )
@@ -209,11 +212,10 @@ fun ExpandableStrategy(
                     modifier = Modifier
                         .align(Alignment.End)
                         .padding(end = 10.dp),
-                    shape = RoundedCornerShape(8.dp),
+                    shape = RoundedCornerShape(8.dp)
                 ) {
                     Text(text = "Selecionar")
                 }
-
             }
         }
     }
@@ -232,5 +234,5 @@ private fun Preview() {
             placeBetOnLowNumber = false,
             strategyType = StrategyType.ticTac
         )
-    ){}
+    ) {}
 }

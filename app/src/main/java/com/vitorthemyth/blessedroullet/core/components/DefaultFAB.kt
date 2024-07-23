@@ -9,7 +9,7 @@ import androidx.compose.ui.graphics.Color
 import com.vitorthemyth.blessedroullet.ui.theme.PurpleColor
 
 @Composable
-fun DefaultFAB(onClick : () -> Unit) {
+fun DefaultFAB(onClick: () -> Unit) {
     FloatingActionButton(
         onClick = onClick,
         backgroundColor = PurpleColor,

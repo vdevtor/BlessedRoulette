@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("org.jlleitschuh.gradle.ktlint")
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
 }
@@ -14,7 +15,7 @@ android {
         minSdk = 28
         targetSdk = 34
         versionCode = 1
-        versionName = "1.0.1"
+        versionName = "1.0.2"
 
         testInstrumentationRunner = "com.vitorthemyth.blessedroullet.di.HiltTestRunner"
         vectorDrawables {
@@ -46,12 +47,27 @@ android {
     }
     packaging {
         resources {
-            excludes += "/META-INF/*"
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
 
     hilt {
         enableAggregatingTask = false
+    }
+
+    ktlint {
+        android.set(true) // Habilitar regras específicas do Android
+        ignoreFailures.set(false) // Falhar a build se o KtLint encontrar algum problema
+        disabledRules.set(
+            listOf(
+                "annotation", "argument-list-wrapping", "comment-wrapping", "enum-wrapping", "final-newline",
+                "import-ordering", "package-name", "wrapping", "filename", "package-name", "no-wildcard-imports", "enum-entry-name-case"
+            )
+        ) // Especificar as regras a serem ignoradas
+        reporters {
+            reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.PLAIN) // Resultado do KtLint em formato de texto simples
+            reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.HTML) // Resultado do KtLint em formato HTML
+        }
     }
 }
 
@@ -74,7 +90,6 @@ dependencies {
     implementation("com.google.accompanist:accompanist-flowlayout:0.24.13-rc")
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.8.1")
 
-
     testImplementation("junit:junit:4.13.2")
     testImplementation("com.google.truth:truth:1.1.3")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
@@ -90,11 +105,6 @@ dependencies {
     androidTestImplementation("com.google.dagger:hilt-android-testing:2.48")
     kaptAndroidTest("com.google.dagger:hilt-android-compiler:2.48")
 
-
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
-
-
-
-
 }

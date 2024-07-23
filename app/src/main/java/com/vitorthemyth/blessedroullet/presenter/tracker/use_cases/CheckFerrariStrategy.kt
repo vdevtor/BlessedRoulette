@@ -19,9 +19,8 @@ class CheckFerrariStrategy {
         val isInTheSameDozen = firstNumber.dozen == secondNumber.dozen
         if (!isInTheSameDozen) return null
 
-
-        val leftNeighbor = (firstNumber.number.toInt() -1).toString()
-        val rightNeighbor = (firstNumber.number.toInt() +1).toString()
+        val leftNeighbor = (firstNumber.number.toInt() - 1).toString()
+        val rightNeighbor = (firstNumber.number.toInt() + 1).toString()
 
         val filteredList = provideRouletteNumbers().filter {
             it.number == leftNeighbor || it.number == rightNeighbor
@@ -30,9 +29,8 @@ class CheckFerrariStrategy {
         }
 
         val playableNumbers = provideRouletteNumbers().filter {
-                filteredList.contains(it.number)
+            filteredList.contains(it.number)
         }
-
 
         return RouletteStrategy(
             strategyTitle = "Ferrari",
