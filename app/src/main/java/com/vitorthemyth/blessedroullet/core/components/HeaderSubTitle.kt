@@ -12,7 +12,7 @@ import com.vitorthemyth.blessedroullet.ui.values.LocalSpacing
 
 @Composable
 fun HeaderSubtitle(
-    text : String,
+    text: String,
     modifier: Modifier,
     textColor: Color = Color.Black
 ) {

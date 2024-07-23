@@ -11,7 +11,7 @@ internal object MyTypography {
         fontWeight = FontWeight.Bold,
         fontSize = 28.sp,
         lineHeight = 32.sp,
-        letterSpacing = 0.4.sp,
+        letterSpacing = 0.4.sp
     )
 
     val subTitle = DefaultTextStyle.copy(
@@ -19,7 +19,7 @@ internal object MyTypography {
         fontWeight = FontWeight.Normal,
         fontSize = 18.sp,
         lineHeight = 22.sp,
-        letterSpacing = 0.4.sp,
+        letterSpacing = 0.4.sp
     )
 
     val iconText = DefaultTextStyle.copy(
@@ -27,7 +27,7 @@ internal object MyTypography {
         fontWeight = FontWeight.SemiBold,
         fontSize = 16.sp,
         lineHeight = 20.sp,
-        letterSpacing = 0.4.sp,
+        letterSpacing = 0.4.sp
     )
 }
 

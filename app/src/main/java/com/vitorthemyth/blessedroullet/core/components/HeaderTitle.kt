@@ -9,9 +9,9 @@ import com.vitorthemyth.blessedroullet.ui.theme.MyTypography
 
 @Composable
 fun HeaderTitle(
-   text : String,
-   modifier: Modifier,
-   color : Color = Color.Black
+    text: String,
+    modifier: Modifier,
+    color: Color = Color.Black
 ) {
     Text(
         textAlign = TextAlign.Center,

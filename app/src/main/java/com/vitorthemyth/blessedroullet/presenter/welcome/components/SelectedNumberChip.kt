@@ -40,18 +40,17 @@ fun SelectedNumberChip(
     val spacing = LocalSpacing.current
     val textDimensions = LocalTextDimensions.current
 
-
-    Box(modifier = Modifier
-        .semantics{ contentDescription = "SelectedNumberChip"}
-        .width(50.dp)
-        .height(50.dp)
-        .wrapContentHeight()
-        .combinedClickable(
-            onLongClick = { onLongClick(number) },
-            onClick = { onLongClick(number) }
-        )
+    Box(
+        modifier = Modifier
+            .semantics { contentDescription = "SelectedNumberChip" }
+            .width(50.dp)
+            .height(50.dp)
+            .wrapContentHeight()
+            .combinedClickable(
+                onLongClick = { onLongClick(number) },
+                onClick = { onLongClick(number) }
+            )
     ) {
-
         Column(
             modifier = Modifier
                 .width(40.dp)
@@ -62,7 +61,7 @@ fun SelectedNumberChip(
                 )
                 .align(Alignment.Center),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center,
+            verticalArrangement = Arrangement.Center
         ) {
             Text(
                 text = number,
@@ -70,7 +69,7 @@ fun SelectedNumberChip(
                     color = Color.White,
                     fontSize = textDimensions.textLarge
                 ),
-                textAlign = TextAlign.Center,
+                textAlign = TextAlign.Center
             )
         }
 
@@ -87,7 +86,6 @@ fun SelectedNumberChip(
     }
 }
 
-
 @Preview
 @Composable
 private fun SelectedNumberChipPreview() {
@@ -95,6 +93,5 @@ private fun SelectedNumberChipPreview() {
         number = "33",
         color = Color.Red
     ) {
-
     }
 }

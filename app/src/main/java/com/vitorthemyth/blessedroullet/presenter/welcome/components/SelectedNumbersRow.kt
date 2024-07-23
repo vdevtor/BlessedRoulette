@@ -16,18 +16,18 @@ import com.vitorthemyth.blessedroullet.ui.values.LocalSpacing
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun SelectedNumbersRow(
-    selectedNumbers : List<RouletteNumber> = emptyList(),
-    onNumberRemoved : (RouletteNumber) -> Unit
+    selectedNumbers: List<RouletteNumber> = emptyList(),
+    onNumberRemoved: (RouletteNumber) -> Unit
 ) {
     val spacing = LocalSpacing.current
 
-
-    FlowRow(modifier = Modifier
-        .fillMaxWidth()
-        .padding(spacing.spaceMedium),
+    FlowRow(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(spacing.spaceMedium),
         horizontalArrangement = Arrangement.Center
     ) {
-        selectedNumbers.forEach {   rouletteNumber->
+        selectedNumbers.forEach { rouletteNumber ->
             SelectedNumberChip(
                 number = rouletteNumber.number,
                 color = rouletteNumber.color
@@ -100,7 +100,6 @@ private fun SelectedNumbersRowPreview() {
                 isHigherNumber = true
             )
         )
-    ){
-
+    ) {
     }
 }

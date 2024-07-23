@@ -8,7 +8,6 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
-
 @HiltAndroidTest
 class WelcomeScreenE2ETest {
 
@@ -24,7 +23,7 @@ class WelcomeScreenE2ETest {
     }
 
     @Test
-    fun testSelectableNumbers(){
+    fun testSelectableNumbers() {
         WelcomeScreenRobot(composeRule)
             .performScrollToLoadContent("33")
             .clickOnNumber("22")

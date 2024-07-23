@@ -24,63 +24,58 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.vitorthemyth.blessedroullet.ui.theme.MyTypography
-import com.vitorthemyth.blessedroullet.ui.values.LocalTextDimensions
-
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun RouletteNumber(
-        number: String,
-        color: Color,
-        boxSize: Dp = 30.dp,
-        ballSize: Dp = 25.dp,
-        textSize: TextUnit = 18.sp,
-        onLongClick: (number: String) -> Unit
+    number: String,
+    color: Color,
+    boxSize: Dp = 30.dp,
+    ballSize: Dp = 25.dp,
+    textSize: TextUnit = 18.sp,
+    onLongClick: (number: String) -> Unit
 ) {
-
-    Box(modifier = Modifier
+    Box(
+        modifier = Modifier
             .semantics { contentDescription = "SelectedNumberChip" }
             .width(boxSize)
             .height(boxSize)
             .wrapContentHeight()
             .combinedClickable(
-                    onLongClick = { onLongClick(number) },
-                    onClick = { onLongClick(number) }
+                onLongClick = { onLongClick(number) },
+                onClick = { onLongClick(number) }
             )
     ) {
-
         Column(
-                modifier = Modifier
-                        .width(ballSize)
-                        .height(ballSize)
-                        .background(
-                                color = color,
-                                shape = RoundedCornerShape(100.dp)
-                        )
-                        .align(Alignment.Center),
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center,
+            modifier = Modifier
+                .width(ballSize)
+                .height(ballSize)
+                .background(
+                    color = color,
+                    shape = RoundedCornerShape(100.dp)
+                )
+                .align(Alignment.Center),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
         ) {
             Text(
-                    text = number,
-                    style = MyTypography.iconText.copy(
-                            color = Color.White,
-                            fontSize = textSize
-                    ),
-                    textAlign = TextAlign.Center,
+                text = number,
+                style = MyTypography.iconText.copy(
+                    color = Color.White,
+                    fontSize = textSize
+                ),
+                textAlign = TextAlign.Center
             )
         }
     }
 }
 
-
 @Preview
 @Composable
 private fun Preview() {
     RouletteNumber(
-            number = "33",
-            color = Color.Red
+        number = "33",
+        color = Color.Red
     ) {
-
     }
 }

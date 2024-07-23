@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("org.jlleitschuh.gradle.ktlint")
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
 }
@@ -53,6 +54,16 @@ android {
     hilt {
         enableAggregatingTask = false
     }
+
+    ktlint {
+        android.set(true) // Enable Android-specific linting rules
+        ignoreFailures.set(false) // Fail the build if KtLint finds any issues
+        disabledRules.set(listOf("final-newline", "no-wildcard-imports", "max-line-length")) // Specify any rules to ignore
+        reporters {
+            reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.PLAIN) // Output KtLint results in plain text format
+            reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.HTML) // Output KtLint results in HTML format
+        }
+    }
 }
 
 dependencies {
@@ -74,7 +85,6 @@ dependencies {
     implementation("com.google.accompanist:accompanist-flowlayout:0.24.13-rc")
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.8.1")
 
-
     testImplementation("junit:junit:4.13.2")
     testImplementation("com.google.truth:truth:1.1.3")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
@@ -90,11 +100,6 @@ dependencies {
     androidTestImplementation("com.google.dagger:hilt-android-testing:2.48")
     kaptAndroidTest("com.google.dagger:hilt-android-compiler:2.48")
 
-
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
-
-
-
-
 }

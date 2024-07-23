@@ -17,7 +17,6 @@ import com.vitorthemyth.blessedroullet.ui.theme.AccentColor
 import com.vitorthemyth.blessedroullet.ui.theme.MyTypography
 import com.vitorthemyth.blessedroullet.ui.values.LocalSpacing
 
-
 @Composable
 fun ActionButton(
     modifier: Modifier,
@@ -29,10 +28,13 @@ fun ActionButton(
     val spacing = LocalSpacing.current
     MaterialTheme {
         Button(
-            onClick = { onAction()},
+            onClick = { onAction() },
             modifier = modifier,
             elevation = ButtonDefaults.elevation(defaultElevation = spacing.spaceLarge),
-            colors = ButtonDefaults.buttonColors(backgroundColor = AccentColor, contentColor = Color.White),
+            colors = ButtonDefaults.buttonColors(
+                backgroundColor = AccentColor,
+                contentColor = Color.White
+            ),
             enabled = isEnabled,
             shape = RoundedCornerShape(100.dp)
         ) {

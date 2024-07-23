@@ -10,30 +10,28 @@ import com.vitorthemyth.blessedroullet.ui.theme.PinkColor
 
 class CheckExtremeStrategy {
 
-
-    operator fun invoke(list: List<RouletteNumber>) : RouletteStrategy?{
+    operator fun invoke(list: List<RouletteNumber>): RouletteStrategy? {
         if (list.size < 2) return null
 
         val firstNumber = list[0]
         val secondNumber = list[1]
 
-        var playableDozen : Dozen = Dozen.none
+        var playableDozen: Dozen = Dozen.none
 
-        when{
+        when {
             secondNumber.dozen == Dozen.second -> return null
 
             secondNumber.dozen == Dozen.third &&
-                    firstNumber.dozen != Dozen.second -> return null
+                firstNumber.dozen != Dozen.second -> return null
 
             secondNumber.dozen == Dozen.third &&
-                    firstNumber.dozen == Dozen.second -> playableDozen = Dozen.first
-
-
-            secondNumber.dozen == Dozen.first &&
-                    firstNumber.dozen != Dozen.second -> return null
+                firstNumber.dozen == Dozen.second -> playableDozen = Dozen.first
 
             secondNumber.dozen == Dozen.first &&
-                    firstNumber.dozen == Dozen.second -> playableDozen = Dozen.third
+                firstNumber.dozen != Dozen.second -> return null
+
+            secondNumber.dozen == Dozen.first &&
+                firstNumber.dozen == Dozen.second -> playableDozen = Dozen.third
 
             else -> Dozen.none
         }
@@ -43,7 +41,6 @@ class CheckExtremeStrategy {
         val filteredList = provideRouletteNumbers().filter {
             it.dozen == playableDozen
         }
-
 
         val indicesToKeep = setOf(0, 2, 3, 5, 6, 8, 9, 11)
 

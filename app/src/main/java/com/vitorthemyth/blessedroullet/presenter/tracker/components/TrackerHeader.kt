@@ -37,7 +37,6 @@ import com.vitorthemyth.blessedroullet.ui.values.LocalSpacing
 import com.vitorthemyth.blessedroullet.ui.values.LocalTextDimensions
 import kotlinx.coroutines.delay
 
-
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun TrackerHeader(
@@ -57,16 +56,15 @@ fun TrackerHeader(
         }
     }
 
-
     Card(
         modifier = modifier
             .fillMaxWidth()
             .padding(spacing.spaceMedium),
         elevation = 99.dp,
         shape = RoundedCornerShape(8.dp),
-        backgroundColor = PurpleColor,
+        backgroundColor = PurpleColor
 
-        ) {
+    ) {
         Column {
             Text(
                 modifier = Modifier
@@ -113,7 +111,6 @@ fun TrackerHeader(
                     .padding(spacing.spaceSmall),
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
-
                 FlowRow(
                     maxItemsInEachRow = 4,
                     modifier = Modifier.weight(.5f)
@@ -123,7 +120,6 @@ fun TrackerHeader(
                             number = rouletteNumber.number,
                             color = rouletteNumber.color,
                             onLongClick = { _ ->
-
                             }
                         )
                     }

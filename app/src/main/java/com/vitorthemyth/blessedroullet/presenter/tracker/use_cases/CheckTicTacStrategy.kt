@@ -19,13 +19,11 @@ class CheckTicTacStrategy {
         val isHigh = firstNumber.isHigherNumber && secondNumber.isHigherNumber
         val isLow = !firstNumber.isHigherNumber && !secondNumber.isHigherNumber
 
-
         if ((!isRed && !isBlack) || (!isHigh && !isLow)) return null
 
         val strategyTitle = "Tic Tac"
         val strategyDescription =
             "Jogue o inverso dos dois ultimos numero baseando-se nas cores e altos/baixos"
-
 
         val playableNumbers = when {
             isRed && isHigh -> provideRouletteNumbers().filter { !it.isHigherNumber && it.color == Color.Black }
