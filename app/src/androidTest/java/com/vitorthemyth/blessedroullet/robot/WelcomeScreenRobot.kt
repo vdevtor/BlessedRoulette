@@ -27,7 +27,7 @@ class WelcomeScreenRobot(
 
     fun clickOnNumber(number: String): WelcomeScreenRobot {
         composeRule
-            .onNodeWithText(number)
+            .onNode(hasContentDescription("SelectNumberChip").and(hasText(number)))
             .performClick()
         return this
     }
@@ -40,9 +40,10 @@ class WelcomeScreenRobot(
     }
 
     fun completeSelectedNumbers(): WelcomeScreenRobot {
-        val listOfNumbers = listOf("11", "9", "34", "14")
+        val listOfNumbers = listOf("14", "34", "14")
         listOfNumbers.forEach { clickOnNumber(it) }
         performScrollToLoadContent("1")
+        clickOnNumber("11")
         clickOnNumber("5")
         return this
     }

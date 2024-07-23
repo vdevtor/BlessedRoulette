@@ -37,7 +37,7 @@ fun RouletteNumber(
 ) {
     Box(
         modifier = Modifier
-            .semantics { contentDescription = "SelectedNumberChip" }
+            .semantics { contentDescription = "SelectNumberChip" }
             .width(boxSize)
             .height(boxSize)
             .wrapContentHeight()
