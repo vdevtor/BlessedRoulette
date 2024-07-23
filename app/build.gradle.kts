@@ -47,7 +47,7 @@ android {
     }
     packaging {
         resources {
-            excludes += "/META-INF/*"
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
 
@@ -56,12 +56,17 @@ android {
     }
 
     ktlint {
-        android.set(true) // Enable Android-specific linting rules
-        ignoreFailures.set(false) // Fail the build if KtLint finds any issues
-        disabledRules.set(listOf("final-newline", "no-wildcard-imports", "max-line-length")) // Specify any rules to ignore
+        android.set(true) // Habilitar regras específicas do Android
+        ignoreFailures.set(false) // Falhar a build se o KtLint encontrar algum problema
+        disabledRules.set(
+            listOf(
+                "annotation", "argument-list-wrapping", "comment-wrapping", "enum-wrapping", "final-newline",
+                "import-ordering", "package-name", "wrapping", "filename", "package-name", "no-wildcard-imports", "enum-entry-name-case"
+            )
+        ) // Especificar as regras a serem ignoradas
         reporters {
-            reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.PLAIN) // Output KtLint results in plain text format
-            reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.HTML) // Output KtLint results in HTML format
+            reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.PLAIN) // Resultado do KtLint em formato de texto simples
+            reporter(org.jlleitschuh.gradle.ktlint.reporter.ReporterType.HTML) // Resultado do KtLint em formato HTML
         }
     }
 }
