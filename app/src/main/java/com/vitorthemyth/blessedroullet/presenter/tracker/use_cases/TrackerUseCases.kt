@@ -21,5 +21,9 @@ data class TrackerUseCases(
     val check27AndNeighbors: Check27AndNeighbors,
     val check24AndNeighbors: Check24AndNeighbors,
     val check23AndNeighbors: Check23AndNeighbors,
-    val check33AndNeighbors: Check33AndNeighbors
+    val check33AndNeighbors: Check33AndNeighbors,
+    val check16AndNeighbors: Check16AndNeighbors,
+    val check9AndNeighbors: Check9AndNeighbors,
+    val check5Combo: Check5Combo,
+    val check35Combo: Check35Combo,
 )

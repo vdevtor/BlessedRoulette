@@ -10,14 +10,13 @@ import com.vitorthemyth.blessedroullet.presenter.welcome.model.RouletteNumber
 import com.vitorthemyth.blessedroullet.ui.theme.lightBlack
 import com.vitorthemyth.blessedroullet.ui.theme.yellowColor
 
-class Check33AndNeighbors {
-
+class Check19AndNeighbors {
     operator fun invoke(list: List<RouletteNumber>): RouletteStrategy? {
         if (list.size < 2) return null
 
-        val triggerNumber = list.find { it.number == "5" || it.number == "13"} ?: return null
+        val triggerNumber = list.find { it.number == "9" } ?: return null
         val triggerIndex = list.indexOf(triggerNumber)
-        val targetNumber = provideRouletteNumbers().find { it.number == "33" }
+        val targetNumber = provideRouletteNumbers().find { it.number == "19" }
         val targetNumberNeighbors = targetNumber?.closestNeighbors ?: return null
 
         val newList = list.filterIndexed { index, _ ->
@@ -31,14 +30,14 @@ class Check33AndNeighbors {
         val playableNumbers = provideRouletteNumbers().filter { it.number in targetNumberNeighbors }
 
         return RouletteStrategy(
-            strategyTitle = "33 & Vizinhos",
-            strategyDescription = "Saiu o número 5 e ele é gatilho do número 33 e vizinhos",
+            strategyTitle = "19 & Vizinhos",
+            strategyDescription = "Saiu o número 9 e ele é gatilho do número 19 e vizinhos",
             playableNumbers = playableNumbers,
             playableDozen = Dozen.none,
             placeBetOnHighNumber = false,
             placeBetOnLowNumber = false,
             cardBackGroundColor = lightBlack,
-            strategyType = StrategyType.thirtyThreeAndNeighbors,
+            strategyType = StrategyType.nineteenAndNeighbors,
             textColor = yellowColor,
             tag = StrategyTag.premium
         )
