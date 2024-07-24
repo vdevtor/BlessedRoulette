@@ -90,17 +90,15 @@ class WelcomeScreenViewModelTest {
     }
 
     @Test
-    fun `verify Snackbar event when more than 7 numbers are selected`() = testScope.runTest {
+    fun `verify Snackbar event when more than 11 numbers are selected`() = testScope.runTest {
         viewModel.uiEvent.test {
-            repeat(7) {
+            repeat(11) {
                 viewModel.onEvent(WelcomeEvents.OnNumberSelected(rouletteNumber))
             }
 
             viewModel.onEvent(WelcomeEvents.OnNumberSelected(rouletteNumber))
 
-            assertThat(awaitItem()).isEqualTo(
-                UiEvent.ShowSnackBar("Você deve adicionar apenas 7 números")
-            )
+            assertThat(awaitItem()).isEqualTo(UiEvent.ShowSnackBar("Você deve adicionar apenas 11 números"))
         }
     }
 }

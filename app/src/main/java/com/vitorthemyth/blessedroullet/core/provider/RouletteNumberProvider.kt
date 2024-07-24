@@ -14,7 +14,7 @@ fun provideRouletteNumbers() = listOf(
         isEven = true,
         dozen = Dozen.first,
         isHigherNumber = false,
-        closestNeighbors = listOf("3", "26", "32", "15"),
+        closestNeighbors = listOf("35", "3", "26", "32", "15", "19"),
         rouletteQuarter = provideRouletteFirstQuarter()
     ),
     RouletteNumber(
@@ -23,7 +23,7 @@ fun provideRouletteNumbers() = listOf(
         isEven = false,
         dozen = Dozen.first,
         isHigherNumber = false,
-        closestNeighbors = listOf("16", "33", "20", "14"),
+        closestNeighbors = listOf("33", "16", "24", "20", "14", "31"),
         rouletteQuarter = provideRouletteThirdQuarter()
     ),
     RouletteNumber(
@@ -32,7 +32,7 @@ fun provideRouletteNumbers() = listOf(
         isEven = true,
         dozen = Dozen.first,
         isHigherNumber = false,
-        closestNeighbors = listOf("4", "21", "25", "17"),
+        closestNeighbors = listOf("34", "17", "25", "21", "4", "19"),
         rouletteQuarter = provideRouletteSecondQuarter()
     ),
     RouletteNumber(
@@ -41,7 +41,7 @@ fun provideRouletteNumbers() = listOf(
         isEven = false,
         dozen = Dozen.first,
         isHigherNumber = false,
-        closestNeighbors = listOf("12", "35", "26", "0"),
+        closestNeighbors = listOf("28", "12", "35", "26", "0", "32"),
         rouletteQuarter = provideRouletteFirstQuarter()
     ),
     RouletteNumber(
@@ -50,7 +50,7 @@ fun provideRouletteNumbers() = listOf(
         isEven = true,
         dozen = Dozen.first,
         isHigherNumber = false,
-        closestNeighbors = listOf("15", "19", "21", "2"),
+        closestNeighbors = listOf("25", "2", "21", "19", "15", "32"),
         rouletteQuarter = provideRouletteFirstQuarter()
     ),
     RouletteNumber(
@@ -59,7 +59,7 @@ fun provideRouletteNumbers() = listOf(
         isEven = false,
         dozen = Dozen.first,
         isHigherNumber = false,
-        closestNeighbors = listOf("32", "10", "24", "16"),
+        closestNeighbors = listOf("8", "23", "10", "24", "16", "33"),
         rouletteQuarter = provideRouletteThirdQuarter()
     ),
     RouletteNumber(
@@ -68,7 +68,7 @@ fun provideRouletteNumbers() = listOf(
         isEven = true,
         dozen = Dozen.first,
         isHigherNumber = false,
-        closestNeighbors = listOf("17", "34", "27", "13"),
+        closestNeighbors = listOf("36", "13", "27", "34", "17", "25"),
         rouletteQuarter = provideRouletteSecondQuarter()
     ),
     RouletteNumber(
@@ -77,7 +77,7 @@ fun provideRouletteNumbers() = listOf(
         isEven = false,
         dozen = Dozen.first,
         isHigherNumber = false,
-        closestNeighbors = listOf("18", "29", "28", "12"),
+        closestNeighbors = listOf("22", "18", "29", "28", "12", "35"),
         rouletteQuarter = provideRouletteFourthQuarter()
     ),
     RouletteNumber(
@@ -86,7 +86,7 @@ fun provideRouletteNumbers() = listOf(
         isEven = true,
         dozen = Dozen.first,
         isHigherNumber = false,
-        closestNeighbors = listOf("11", "30", "23", "10"),
+        closestNeighbors = listOf("5", "10", "23", "30", "11", "36"),
         rouletteQuarter = provideRouletteThirdQuarter()
     ),
     RouletteNumber(
@@ -95,7 +95,7 @@ fun provideRouletteNumbers() = listOf(
         isEven = false,
         dozen = Dozen.first,
         isHigherNumber = false,
-        closestNeighbors = listOf("14", "31", "22", "18"),
+        closestNeighbors = listOf("20", "14", "31", "22", "18", "29"),
         rouletteQuarter = provideRouletteFourthQuarter()
     ),
     RouletteNumber(
@@ -104,7 +104,7 @@ fun provideRouletteNumbers() = listOf(
         isEven = true,
         dozen = Dozen.first,
         isHigherNumber = false,
-        closestNeighbors = listOf("8", "23", "5", "24"),
+        closestNeighbors = listOf("16", "24", "5", "23", "8", "30"),
         rouletteQuarter = provideRouletteThirdQuarter()
     ),
     RouletteNumber(
@@ -113,7 +113,7 @@ fun provideRouletteNumbers() = listOf(
         isEven = false,
         dozen = Dozen.first,
         isHigherNumber = false,
-        closestNeighbors = listOf("13", "36", "30", "8"),
+        closestNeighbors = listOf("23", "8", "30", "36", "13", "27"),
         rouletteQuarter = provideRouletteThirdQuarter()
     ),
     RouletteNumber(
@@ -122,7 +122,7 @@ fun provideRouletteNumbers() = listOf(
         isEven = true,
         dozen = Dozen.first,
         isHigherNumber = false,
-        closestNeighbors = listOf("7", "28", "35", "3"),
+        closestNeighbors = listOf("29", "7", "28", "35", "3", "26"),
         rouletteQuarter = provideRouletteFirstQuarter()
     ),
     RouletteNumber(
@@ -131,7 +131,7 @@ fun provideRouletteNumbers() = listOf(
         isEven = false,
         dozen = Dozen.second,
         isHigherNumber = false,
-        closestNeighbors = listOf("6", "27", "36", "11"),
+        closestNeighbors = listOf("30", "11", "36", "27", "6", "34"),
         rouletteQuarter = provideRouletteSecondQuarter()
     ),
     RouletteNumber(
@@ -140,7 +140,7 @@ fun provideRouletteNumbers() = listOf(
         isEven = true,
         dozen = Dozen.second,
         isHigherNumber = false,
-        closestNeighbors = listOf("1", "20", "31", "9"),
+        closestNeighbors = listOf("33", "1", "20", "31", "9", "22"),
         rouletteQuarter = provideRouletteFourthQuarter()
     ),
     RouletteNumber(
@@ -149,7 +149,7 @@ fun provideRouletteNumbers() = listOf(
         isEven = false,
         dozen = Dozen.second,
         isHigherNumber = false,
-        closestNeighbors = listOf("0", "32", "19", "4"),
+        closestNeighbors = listOf("21", "4", "19", "32", "0", "26"),
         rouletteQuarter = provideRouletteFirstQuarter()
     ),
     RouletteNumber(
@@ -158,7 +158,7 @@ fun provideRouletteNumbers() = listOf(
         isEven = true,
         dozen = Dozen.second,
         isHigherNumber = false,
-        closestNeighbors = listOf("5", "24", "33", "1"),
+        closestNeighbors = listOf("10", "5", "24", "33", "1", "20"),
         rouletteQuarter = provideRouletteThirdQuarter()
     ),
     RouletteNumber(
@@ -167,7 +167,7 @@ fun provideRouletteNumbers() = listOf(
         isEven = false,
         dozen = Dozen.second,
         isHigherNumber = false,
-        closestNeighbors = listOf("2", "25", "34", "6"),
+        closestNeighbors = listOf("27", "6", "34", "25", "2", "21"),
         rouletteQuarter = provideRouletteSecondQuarter()
     ),
     RouletteNumber(
@@ -176,7 +176,7 @@ fun provideRouletteNumbers() = listOf(
         isEven = true,
         dozen = Dozen.second,
         isHigherNumber = false,
-        closestNeighbors = listOf("9", "22", "29", "7"),
+        closestNeighbors = listOf("31", "9", "22", "29", "7", "28"),
         rouletteQuarter = provideRouletteFourthQuarter()
     ),
     RouletteNumber(
@@ -185,7 +185,7 @@ fun provideRouletteNumbers() = listOf(
         isEven = false,
         dozen = Dozen.second,
         isHigherNumber = true,
-        closestNeighbors = listOf("32", "15", "4", "21"),
+        closestNeighbors = listOf("2", "21", "4", "15", "32", "0"),
         rouletteQuarter = provideRouletteFirstQuarter()
     ),
     RouletteNumber(
@@ -194,7 +194,7 @@ fun provideRouletteNumbers() = listOf(
         isEven = true,
         dozen = Dozen.second,
         isHigherNumber = true,
-        closestNeighbors = listOf("33", "01", "14", "31"),
+        closestNeighbors = listOf("16", "33", "1", "14", "31", "9"),
         rouletteQuarter = provideRouletteFourthQuarter()
     ),
     RouletteNumber(
@@ -203,7 +203,7 @@ fun provideRouletteNumbers() = listOf(
         isEven = false,
         dozen = Dozen.second,
         isHigherNumber = true,
-        closestNeighbors = listOf("19", "4", "2", "25"),
+        closestNeighbors = listOf("17", "25", "2", "4", "19", "15"),
         rouletteQuarter = provideRouletteSecondQuarter()
     ),
     RouletteNumber(
@@ -212,7 +212,7 @@ fun provideRouletteNumbers() = listOf(
         isEven = true,
         dozen = Dozen.second,
         isHigherNumber = true,
-        closestNeighbors = listOf("31", "9", "18", "29"),
+        closestNeighbors = listOf("14", "31", "9", "18", "29", "7"),
         rouletteQuarter = provideRouletteFourthQuarter()
     ),
     RouletteNumber(
@@ -221,7 +221,7 @@ fun provideRouletteNumbers() = listOf(
         isEven = false,
         dozen = Dozen.second,
         isHigherNumber = true,
-        closestNeighbors = listOf("30", "8", "10", "5"),
+        closestNeighbors = listOf("24", "5", "10", "8", "30", "11"),
         rouletteQuarter = provideRouletteThirdQuarter()
     ),
     RouletteNumber(
@@ -230,7 +230,7 @@ fun provideRouletteNumbers() = listOf(
         isEven = true,
         dozen = Dozen.second,
         isHigherNumber = true,
-        closestNeighbors = listOf("10", "5", "16", "33"),
+        closestNeighbors = listOf("23", "10", "5", "16", "33", "1"),
         rouletteQuarter = provideRouletteThirdQuarter()
     ),
     RouletteNumber(
@@ -239,7 +239,7 @@ fun provideRouletteNumbers() = listOf(
         isEven = false,
         dozen = Dozen.third,
         isHigherNumber = true,
-        closestNeighbors = listOf("21", "2", "17", "34"),
+        closestNeighbors = listOf("6", "34", "17", "2", "21", "4"),
         rouletteQuarter = provideRouletteSecondQuarter()
     ),
     RouletteNumber(
@@ -248,7 +248,7 @@ fun provideRouletteNumbers() = listOf(
         isEven = true,
         dozen = Dozen.third,
         isHigherNumber = true,
-        closestNeighbors = listOf("35", "3", "0", "32"),
+        closestNeighbors = listOf("12", "35", "3", "0", "32", "15"),
         rouletteQuarter = provideRouletteFirstQuarter()
     ),
     RouletteNumber(
@@ -257,7 +257,7 @@ fun provideRouletteNumbers() = listOf(
         isEven = false,
         dozen = Dozen.third,
         isHigherNumber = true,
-        closestNeighbors = listOf("34", "6", "27", "13"),
+        closestNeighbors = listOf("11", "36", "13", "6", "34", "17"),
         rouletteQuarter = provideRouletteSecondQuarter()
     ),
     RouletteNumber(
@@ -266,7 +266,7 @@ fun provideRouletteNumbers() = listOf(
         isEven = true,
         dozen = Dozen.third,
         isHigherNumber = true,
-        closestNeighbors = listOf("29", "7", "12", "35"),
+        closestNeighbors = listOf("18", "29", "7", "12", "35", "3"),
         rouletteQuarter = provideRouletteFourthQuarter()
     ),
     RouletteNumber(
@@ -275,7 +275,7 @@ fun provideRouletteNumbers() = listOf(
         isEven = false,
         dozen = Dozen.third,
         isHigherNumber = true,
-        closestNeighbors = listOf("22", "18", "7", "28"),
+        closestNeighbors = listOf("9", "22", "18", "7", "28", "12"),
         rouletteQuarter = provideRouletteFourthQuarter()
     ),
     RouletteNumber(
@@ -284,7 +284,7 @@ fun provideRouletteNumbers() = listOf(
         isEven = true,
         dozen = Dozen.third,
         isHigherNumber = true,
-        closestNeighbors = listOf("36", "11", "8", "23"),
+        closestNeighbors = listOf("10", "23", "8", "11", "36", "13"),
         rouletteQuarter = provideRouletteThirdQuarter()
     ),
     RouletteNumber(
@@ -293,7 +293,7 @@ fun provideRouletteNumbers() = listOf(
         isEven = false,
         dozen = Dozen.third,
         isHigherNumber = true,
-        closestNeighbors = listOf("20", "14", "9", "22"),
+        closestNeighbors = listOf("1", "20", "14", "9", "22", "18"),
         rouletteQuarter = provideRouletteFourthQuarter()
     ),
     RouletteNumber(
@@ -302,7 +302,7 @@ fun provideRouletteNumbers() = listOf(
         isEven = true,
         dozen = Dozen.third,
         isHigherNumber = true,
-        closestNeighbors = listOf("26", "0", "15", "19"),
+        closestNeighbors = listOf("4", "19", "15", "0", "26", "3"),
         rouletteQuarter = provideRouletteFirstQuarter()
     ),
     RouletteNumber(
@@ -311,7 +311,7 @@ fun provideRouletteNumbers() = listOf(
         isEven = false,
         dozen = Dozen.third,
         isHigherNumber = true,
-        closestNeighbors = listOf("24", "16", "1", "20"),
+        closestNeighbors = listOf("5", "24", "16", "1", "20", "14"),
         rouletteQuarter = provideRouletteThirdQuarter()
     ),
     RouletteNumber(
@@ -320,7 +320,7 @@ fun provideRouletteNumbers() = listOf(
         isEven = true,
         dozen = Dozen.third,
         isHigherNumber = true,
-        closestNeighbors = listOf("25", "17", "6", "27"),
+        closestNeighbors = listOf("13", "27", "6", "17", "25", "2"),
         rouletteQuarter = provideRouletteSecondQuarter()
     ),
     RouletteNumber(
@@ -329,7 +329,7 @@ fun provideRouletteNumbers() = listOf(
         isEven = false,
         dozen = Dozen.third,
         isHigherNumber = true,
-        closestNeighbors = listOf("28", "12", "3", "26"),
+        closestNeighbors = listOf("7", "28", "12", "3", "26", "0"),
         rouletteQuarter = provideRouletteFirstQuarter()
     ),
     RouletteNumber(
@@ -338,7 +338,7 @@ fun provideRouletteNumbers() = listOf(
         isEven = true,
         dozen = Dozen.third,
         isHigherNumber = true,
-        closestNeighbors = listOf("27", "13", "11", "30"),
+        closestNeighbors = listOf("8", "30", "11", "13", "27", "6"),
         rouletteQuarter = provideRouletteSecondQuarter()
     )
 )
@@ -415,3 +415,7 @@ fun provideRouletteFourthQuarter() = RouletteQuarter(
     quarterMirrorNumber = "34",
     quarterOrder = QuarterOrder.fourth
 )
+
+fun isStrategyExpired(neighbours: List<String>?, currentList: List<String>): Boolean {
+    return neighbours?.any { it in currentList } ?: true
+}

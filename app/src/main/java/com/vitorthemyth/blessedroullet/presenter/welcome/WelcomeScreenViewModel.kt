@@ -36,8 +36,8 @@ class WelcomeScreenViewModel @Inject constructor(
                 }
 
                 is WelcomeEvents.OnNumberSelected -> {
-                    if (state.selectedNumbers.size >= 7) {
-                        _uiEvent.send(UiEvent.ShowSnackBar("Você deve adicionar apenas 7 números"))
+                    if (state.selectedNumbers.size >= 11) {
+                        _uiEvent.send(UiEvent.ShowSnackBar("Você deve adicionar apenas 11 números"))
                         return@launch
                     }
                     rouletteStepList.add(welcomeEvents.number)
@@ -55,7 +55,7 @@ class WelcomeScreenViewModel @Inject constructor(
     private fun updateSelectedNumberState() {
         state = state.copy(
             selectedNumbers = rouletteStepList.toMutableList(),
-            isReadyToGo = state.selectedNumbers.size == 6
+            isReadyToGo = state.selectedNumbers.size == 10
         )
     }
 }
