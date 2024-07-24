@@ -10,7 +10,6 @@ import com.vitorthemyth.blessedroullet.ui.theme.PurpleColor
 
 class CheckArcherStrategy {
 
-
     operator fun invoke(list: List<RouletteNumber>): RouletteStrategy? {
         if (list.size < 2) return null
 
@@ -19,14 +18,14 @@ class CheckArcherStrategy {
         val thirdNumberPosition = list[2].rouletteQuarter.quarterOrder.position
 
         val isValidSequence: Boolean = isValidThirdNumber(thirdNumberPosition, secondNumberPosition) &&
-                isValidFirstNumberNumber(firstNumberPosition,thirdNumberPosition)
+            isValidFirstNumberNumber(firstNumberPosition, thirdNumberPosition)
 
         if (!isValidSequence) return null
 
         val leadNumber = provideRouletteNumbers().find {
-            it.rouletteQuarter.quarterOrder.position != firstNumberPosition
-                    &&  it.rouletteQuarter.quarterOrder.position != secondNumberPosition
-                    && it.rouletteQuarter.quarterOrder.position != thirdNumberPosition
+            it.rouletteQuarter.quarterOrder.position != firstNumberPosition &&
+                it.rouletteQuarter.quarterOrder.position != secondNumberPosition &&
+                it.rouletteQuarter.quarterOrder.position != thirdNumberPosition
         } ?: provideRouletteNumbers().first()
 
         val playableNumbers = provideRouletteNumbers().filter {
@@ -55,7 +54,9 @@ class CheckArcherStrategy {
             secondNumberPosition == 2 || secondNumberPosition == 4
         } else if (thirdNumberPosition == 4) {
             secondNumberPosition == 1 || secondNumberPosition == 3
-        } else false
+        } else {
+            false
+        }
 
     private fun isValidFirstNumberNumber(firstNumberPosition: Int, thirdNumberPosition: Int) =
         when (firstNumberPosition) {

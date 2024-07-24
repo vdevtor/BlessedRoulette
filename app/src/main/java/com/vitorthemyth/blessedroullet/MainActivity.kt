@@ -49,7 +49,6 @@ class MainActivity : ComponentActivity() {
                         navController = navController,
                         startDestination = Routes.WELCOME
                     ) {
-
                         composable(route = Routes.WELCOME) {
                             WelcomeScreen(
                                 scaffoldState.snackbarHostState
@@ -58,7 +57,7 @@ class MainActivity : ComponentActivity() {
                             }
                         }
 
-                        composable(route = Routes.TRACKER){
+                        composable(route = Routes.TRACKER) {
                             TrackerScreen()
                         }
                     }
