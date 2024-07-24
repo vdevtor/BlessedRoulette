@@ -140,5 +140,18 @@ class TrackerScreenViewModel @Inject constructor(
         trackerUseCases.check33AndNeighbors(lastSelectedNumbers).takeIf { it != null }?.let {
             rouletteStrategiesStepList.add(it)
         }
+        trackerUseCases.check5Combo(lastSelectedNumbers).takeIf { it != null }?.let {
+            rouletteStrategiesStepList.add(it)
+        }
+        trackerUseCases.check9AndNeighbors(lastSelectedNumbers).takeIf { it != null }?.let {
+            rouletteStrategiesStepList.add(it)
+        }
+        trackerUseCases.check35Combo(lastSelectedNumbers).takeIf { it != null }?.let {
+            rouletteStrategiesStepList.add(it)
+        }
+
+        trackerUseCases.check35Combo(lastSelectedNumbers).takeIf { it != null }?.let {
+            rouletteStrategiesStepList.add(it)
+        }
     }
 }

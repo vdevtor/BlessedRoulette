@@ -39,6 +39,11 @@ enum class StrategyType {
     twentyFourAndNeighbors,
     twentyThreeAndNeighbors,
     thirtyThreeAndNeighbors,
+    nineteenAndNeighbors,
+    sixteenAndNeighbors,
+    nineAndNeighbors,
+    fiveCombo,
+    thrityFiveCombo,
     none
 }
 enum class StrategyTag {

@@ -2,6 +2,7 @@ package com.vitorthemyth.blessedroullet.di
 
 import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.Check13AndNeighbors
 import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.Check14AndNeighbors
+import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.Check16AndNeighbors
 import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.Check17AndNeighbors
 import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.Check20AndNeighbors
 import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.Check21AndNeighbors
@@ -12,7 +13,10 @@ import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.Check26AndNei
 import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.Check27AndNeighbors
 import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.Check30AndNeighbors
 import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.Check33AndNeighbors
+import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.Check35Combo
 import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.Check3AndNeighbors
+import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.Check5Combo
+import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.Check9AndNeighbors
 import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.CheckArcherStrategy
 import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.CheckBugattiStrategy
 import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.CheckEvenOddStrategy
@@ -56,7 +60,11 @@ internal object UseCasesModule {
             check24AndNeighbors = Check24AndNeighbors(),
             check23AndNeighbors = Check23AndNeighbors(),
             check33AndNeighbors = Check33AndNeighbors(),
-            check21AndNeighbors = Check21AndNeighbors()
+            check21AndNeighbors = Check21AndNeighbors(),
+            check5Combo = Check5Combo(),
+            check9AndNeighbors = Check9AndNeighbors(),
+            check35Combo = Check35Combo(),
+            check16AndNeighbors = Check16AndNeighbors()
         )
     }
 }
