@@ -13,12 +13,10 @@ import com.vitorthemyth.blessedroullet.ui.theme.yellowColor
 class Check27AndNeighbors {
 
     operator fun invoke(list: List<RouletteNumber>): RouletteStrategy? {
-
         if (list.size < 2) return null
         val triggerNumber = list.find { it.number == "19" } ?: return null
         val triggerIndex = list.indexOf(triggerNumber)
         val targetNumber = provideRouletteNumbers().find { it.number == "27" }
-
 
         val targetNumberNeighbors = targetNumber?.closestNeighbors.orEmpty()
 
@@ -30,14 +28,14 @@ class Check27AndNeighbors {
             index < triggerIndex
         }
 
-        if (isStrategyExpired(targetNumberNeighbors,newList.map { it.number })) {
+        if (isStrategyExpired(targetNumberNeighbors, newList.map { it.number })) {
             return null
         }
 
         val playableNumbers = provideRouletteNumbers().filter { it.number in targetNumberNeighbors }
 
         return RouletteStrategy(
-            strategyTitle = "27 & Vizinhos",
+            strategyTitle = "V:27 - G:19",
             strategyDescription = "Saiu o número 19 e ele é gatilho do número 27",
             playableNumbers = playableNumbers,
             playableDozen = Dozen.none,

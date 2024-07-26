@@ -4,6 +4,7 @@ import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.Check13AndNei
 import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.Check14AndNeighbors
 import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.Check16AndNeighbors
 import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.Check17AndNeighbors
+import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.Check19AndNeighbors
 import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.Check20AndNeighbors
 import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.Check21AndNeighbors
 import com.vitorthemyth.blessedroullet.presenter.tracker.use_cases.Check22AndNeighbors
@@ -61,6 +62,7 @@ internal object UseCasesModule {
             check23AndNeighbors = Check23AndNeighbors(),
             check33AndNeighbors = Check33AndNeighbors(),
             check21AndNeighbors = Check21AndNeighbors(),
+            check19AndNeighbors = Check19AndNeighbors(),
             check5Combo = Check5Combo(),
             check9AndNeighbors = Check9AndNeighbors(),
             check35Combo = Check35Combo(),
