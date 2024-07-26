@@ -31,7 +31,7 @@ class Check9AndNeighbors {
         val playableNumbers = provideRouletteNumbers().filter { it.number in targetNumberNeighbors }
 
         return RouletteStrategy(
-            strategyTitle = "9 & Vizinhos",
+            strategyTitle = "V:9 - G:19",
             strategyDescription = "Saiu o número 19 e ele é gatilho do número 9 e vizinhos",
             playableNumbers = playableNumbers,
             playableDozen = Dozen.none,

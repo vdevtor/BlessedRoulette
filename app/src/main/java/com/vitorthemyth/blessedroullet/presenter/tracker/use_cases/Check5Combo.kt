@@ -20,7 +20,6 @@ class Check5Combo {
         val targetNumber2 = provideRouletteNumbers().find { it.number == "22" }
         val targetNumber3 = provideRouletteNumbers().find { it.number == "25" }
 
-
         val targetNumberNeighbors = targetNumber?.closestNeighbors ?: return null
         val targetNumberNeighbors2 = targetNumber2?.closestNeighbors ?: return null
         val targetNumberNeighbors3 = targetNumber3?.closestNeighbors ?: return null
@@ -32,10 +31,10 @@ class Check5Combo {
         if (isStrategyExpired(
                 targetNumberNeighbors,
                 newList.map { it.number }) || isStrategyExpired(
-                targetNumberNeighbors2,
-                newList.map { it.number }) || isStrategyExpired(
-                targetNumberNeighbors3,
-                newList.map { it.number })
+                    targetNumberNeighbors2,
+                    newList.map { it.number }) || isStrategyExpired(
+                    targetNumberNeighbors3,
+                    newList.map { it.number })
         ) {
             return null
         }
@@ -45,7 +44,7 @@ class Check5Combo {
         val playableNumbers = provideRouletteNumbers().filter { it.number in targetNumbersList }
 
         return RouletteStrategy(
-            strategyTitle = "Vizinhos do 5,22 e 5",
+            strategyTitle = "V:5 & 22 & 25 - G:5",
             strategyDescription = "Saiu o número 5 e ele é gatilho do número 5,22 e 25",
             playableNumbers = playableNumbers,
             playableDozen = Dozen.none,
