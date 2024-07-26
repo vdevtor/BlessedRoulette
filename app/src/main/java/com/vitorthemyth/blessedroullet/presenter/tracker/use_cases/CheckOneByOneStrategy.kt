@@ -30,7 +30,7 @@ class CheckOneByOneStrategy {
         }
 
         return RouletteStrategy(
-            strategyTitle = "1 por 1",
+            strategyTitle = "Amizade",
             strategyDescription = "Os 2 últimos numeros tem a mesma terminação,selecione os numeros com terminais iguais aos vizinhos do ultimo numero selecionado",
             playableNumbers = playableNumbers,
             playableDozen = Dozen.none,

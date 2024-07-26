@@ -33,7 +33,7 @@ class CheckArcherStrategy {
         }
 
         return RouletteStrategy(
-            strategyTitle = "Arco e Flecha",
+            strategyTitle = "Fatiada",
             strategyDescription = "Os 3 últimos números cairam no quarto da roleta em sequencia, aposte nos numeros do quarto faltante.",
             playableNumbers = playableNumbers,
             playableDozen = Dozen.none,

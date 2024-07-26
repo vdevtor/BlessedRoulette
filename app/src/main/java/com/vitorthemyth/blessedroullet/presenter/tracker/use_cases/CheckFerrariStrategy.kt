@@ -33,7 +33,7 @@ class CheckFerrariStrategy {
         }
 
         return RouletteStrategy(
-            strategyTitle = "Ferrari",
+            strategyTitle = "Boltz",
             strategyDescription = "Os 2 últimos numeros cairam na mesma duzia, selecione o modo pista para pegar vizinho da esquerda e da direita",
             playableNumbers = playableNumbers,
             playableDozen = Dozen.none,

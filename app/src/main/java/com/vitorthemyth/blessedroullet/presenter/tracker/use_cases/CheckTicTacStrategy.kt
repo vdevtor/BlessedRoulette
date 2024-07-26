@@ -21,7 +21,7 @@ class CheckTicTacStrategy {
 
         if ((!isRed && !isBlack) || (!isHigh && !isLow)) return null
 
-        val strategyTitle = "Tic Tac"
+        val strategyTitle = "Toma lá da Cá"
         val strategyDescription =
             "Jogue o inverso dos dois ultimos numero baseando-se nas cores e altos/baixos"
 
