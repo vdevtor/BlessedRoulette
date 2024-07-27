@@ -47,7 +47,7 @@ class CheckExtremeStrategy {
         val playableNumbers = filteredList.filterIndexed { index, _ -> index in indicesToKeep }
 
         return RouletteStrategy(
-            strategyTitle = "Extreme",
+            strategyTitle = "Fronteira",
             strategyDescription = "Duzias em sequência, você deve jogar nas extremidades da proxima duzia. e.g 1º -> 2º = 3º duzia,3º -> 2º = 1º duzia",
             playableNumbers = playableNumbers,
             playableDozen = playableDozen,

@@ -29,8 +29,8 @@ class CheckBugattiStrategy {
         }
 
         return RouletteStrategy(
-            strategyTitle = "Bugatti",
-            strategyDescription = "O último número possui terminal menor que o penultimo, escolha os terminas do ultimo numero +1 e +2 ",
+            strategyTitle = "Menos é Mais",
+            strategyDescription = "O último número possui  o terminal menor que o penultimo, escolha os terminas do ultimo numero +1 e +2 ",
             playableNumbers = playableNumbers,
             playableDozen = Dozen.none,
             placeBetOnHighNumber = false,
