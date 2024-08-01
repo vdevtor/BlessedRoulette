@@ -20,13 +20,13 @@ class CheckMirrorStrategy {
         val currentQuarter = firstNumber.rouletteQuarter.quarterOrder
 
         val isSameQuarter = (secondNumber.rouletteQuarter.quarterOrder == currentQuarter)
-                .and(thirdNumber.rouletteQuarter.quarterOrder == currentQuarter)
+            .and(thirdNumber.rouletteQuarter.quarterOrder == currentQuarter)
 
         if (!isSameQuarter) return null
 
         val mirrorNumber = firstNumber.rouletteQuarter.quarterMirrorNumber
 
-        val  playableNumbers = provideRouletteNumbers()
+        val playableNumbers = provideRouletteNumbers()
             .find { it.number == mirrorNumber }
             ?.let { number ->
                 provideRouletteNumbers().filter {
@@ -35,7 +35,7 @@ class CheckMirrorStrategy {
             } ?: return null
 
         return RouletteStrategy(
-            strategyTitle = "Espelho",
+            strategyTitle = "Força Espelho",
             strategyDescription = "Os 3 últimos números cairam no mesmo quarto da roleta, jogue nos vizinhos do quarto oposto.",
             playableNumbers = playableNumbers,
             playableDozen = Dozen.none,
@@ -45,6 +45,5 @@ class CheckMirrorStrategy {
             strategyType = StrategyType.mirror,
             textColor = Color.White
         )
-
     }
 }

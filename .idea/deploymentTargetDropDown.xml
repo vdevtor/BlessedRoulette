@@ -3,25 +3,9 @@
   <component name="deploymentTargetDropDown">
     <value>
       <entry key="WelcomeScreenE2ETest">
-        <State>
-          <runningDeviceTargetSelectedWithDropDown>
-            <Target>
-              <type value="RUNNING_DEVICE_TARGET" />
-              <deviceKey>
-                <Key>
-                  <type value="SERIAL_NUMBER" />
-                  <value value="5233504538573398" />
-                </Key>
-              </deviceKey>
-            </Target>
-          </runningDeviceTargetSelectedWithDropDown>
-          <timeTargetWasSelectedWithDropDown value="2024-06-02T20:47:37.011539100Z" />
-        </State>
-      </entry>
-      <entry key="app">
         <State />
       </entry>
-      <entry key="testSelectableNumbers()">
+      <entry key="app">
         <State />
       </entry>
     </value>

@@ -9,10 +9,10 @@ import com.vitorthemyth.blessedroullet.core.preferences.Preferences
 import com.vitorthemyth.blessedroullet.core.ui.UiEvent
 import com.vitorthemyth.blessedroullet.presenter.welcome.model.RouletteNumber
 import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 @HiltViewModel
 class WelcomeScreenViewModel @Inject constructor(
@@ -29,7 +29,6 @@ class WelcomeScreenViewModel @Inject constructor(
 
     fun onEvent(welcomeEvents: WelcomeEvents) {
         viewModelScope.launch {
-
             when (welcomeEvents) {
                 WelcomeEvents.OnNextClicked -> {
                     preferences.saveLastSortedNumbers(state.selectedNumbers)
@@ -37,8 +36,8 @@ class WelcomeScreenViewModel @Inject constructor(
                 }
 
                 is WelcomeEvents.OnNumberSelected -> {
-                    if (state.selectedNumbers.size >= 7) {
-                        _uiEvent.send(UiEvent.ShowSnackBar("Você deve adicionar apenas 7 números"))
+                    if (state.selectedNumbers.size >= 11) {
+                        _uiEvent.send(UiEvent.ShowSnackBar("Você deve adicionar apenas 11 números"))
                         return@launch
                     }
                     rouletteStepList.add(welcomeEvents.number)
@@ -56,7 +55,7 @@ class WelcomeScreenViewModel @Inject constructor(
     private fun updateSelectedNumberState() {
         state = state.copy(
             selectedNumbers = rouletteStepList.toMutableList(),
-            isReadyToGo = state.selectedNumbers.size == 6
+            isReadyToGo = state.selectedNumbers.size == 10
         )
     }
 }

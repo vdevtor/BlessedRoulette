@@ -11,11 +11,41 @@ data class RouletteStrategy(
     val playableDozen: Dozen,
     val placeBetOnHighNumber: Boolean = false,
     val placeBetOnLowNumber: Boolean = false,
-    val cardBackGroundColor : Color = Color.Yellow,
+    val cardBackGroundColor: Color = Color.Yellow,
     val strategyType: StrategyType = StrategyType.none,
-    val textColor :  Color = Color.Black
+    val textColor: Color = Color.Black,
+    val tag: StrategyTag = StrategyTag.standard
 )
 
-enum class StrategyType{
-    ticTac,ferrari,evenOdd,oneByOne,extreme,mirror,archer,bugatti,none
+enum class StrategyType {
+    ticTac,
+    ferrari,
+    evenOdd,
+    oneByOne,
+    extreme,
+    mirror,
+    archer,
+    bugatti,
+    thirtyAndNeighbors,
+    seventeenAndNeighbors,
+    twentyTwoAndNeighbors,
+    twentyOneAndNeighbors,
+    twentyAndNeighbors,
+    threeAndNeighbors,
+    thirteenAndNeighbors,
+    twentySixAndNeighbors,
+    fourteenAndNeighbors,
+    twentySevenAndNeighbors,
+    twentyFourAndNeighbors,
+    twentyThreeAndNeighbors,
+    thirtyThreeAndNeighbors,
+    nineteenAndNeighbors,
+    sixteenAndNeighbors,
+    nineAndNeighbors,
+    fiveCombo,
+    thrityFiveCombo,
+    none
+}
+enum class StrategyTag {
+    standard, premium
 }

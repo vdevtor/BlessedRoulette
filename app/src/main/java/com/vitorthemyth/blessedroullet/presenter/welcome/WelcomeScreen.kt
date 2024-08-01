@@ -28,7 +28,7 @@ import kotlinx.coroutines.flow.collectLatest
 fun WelcomeScreen(
     snackBarHostState: SnackbarHostState,
     viewModel: WelcomeScreenViewModel = hiltViewModel(),
-    onNavigateUp: () -> Unit,
+    onNavigateUp: () -> Unit
 ) {
     val spacing = LocalSpacing.current
     val state = viewModel.state
@@ -56,7 +56,6 @@ fun WelcomeScreen(
             .fillMaxSize()
             .background(color = MaterialTheme.colors.background)
     ) {
-
         HeaderTitle(
             text = "Bem vindo ao Blessed Roulette",
             modifier = Modifier
@@ -105,7 +104,6 @@ fun WelcomeScreenPreviewlable(
             .fillMaxSize()
             .background(color = MaterialTheme.colors.background)
     ) {
-
         HeaderTitle(
             text = "Bem vindo ao Blessed Roulette",
             modifier = Modifier.align(alignment = Alignment.CenterHorizontally)
@@ -125,7 +123,6 @@ fun WelcomeScreenPreviewlable(
         SelectedNumbersRow(
             selectedNumbers = numberlist
         ) { _ ->
-
         }
 
         ActionButton(
@@ -135,7 +132,6 @@ fun WelcomeScreenPreviewlable(
             text = "Avançar",
             isEnabled = numberlist.size == 7
         ) {
-
         }
 
         AvailableNumbersGrid(Modifier) {}

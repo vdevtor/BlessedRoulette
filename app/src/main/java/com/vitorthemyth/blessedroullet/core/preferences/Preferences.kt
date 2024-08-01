@@ -6,10 +6,9 @@ interface Preferences {
 
     fun saveLastSortedNumbers(selectedNumbers: List<RouletteNumber>)
 
-    fun getLastSortedNumbers() : List<RouletteNumber>
+    fun getLastSortedNumbers(): List<RouletteNumber>
 
-    companion object{
+    companion object {
         const val KEY_LAST_SORTED_NUMBERS = "last_sorted_numbers"
     }
 }
-

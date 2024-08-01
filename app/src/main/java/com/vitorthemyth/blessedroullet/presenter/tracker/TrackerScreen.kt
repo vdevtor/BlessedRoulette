@@ -42,8 +42,8 @@ fun TrackerScreen(
     ModalBottomSheetLayout(
         sheetState = modalBottomSheetState,
         sheetContent = {
-            SelectNumberBottomSheet{
-               scope.launch { modalBottomSheetState.hide() }
+            SelectNumberBottomSheet {
+                scope.launch { modalBottomSheetState.hide() }
                 viewModel.onEvent(TrackerScreenEvents.OnNewNumberSelected(it))
             }
         },
@@ -63,7 +63,10 @@ fun TrackerScreen(
                     .fillMaxSize()
                     .background(color = BackgroundColor)
             ) {
-                TrackerHeader(lastSelectedNumbers = state.lastSelectedNumbers, lastStrategy = state.lastStrategy)
+                TrackerHeader(
+                    lastSelectedNumbers = state.lastSelectedNumbers,
+                    lastStrategy = state.lastStrategy
+                )
                 HeaderTitle(
                     text = "Estratégias Disponíveis",
                     modifier = Modifier.align(Alignment.CenterHorizontally)
@@ -73,7 +76,7 @@ fun TrackerScreen(
                     availableStrategies = state.availableStrategies,
                     modifier = Modifier
                         .padding(LocalSpacing.current.spaceMedium)
-                ){
+                ) {
                     viewModel.onEvent(TrackerScreenEvents.OnNewStrategySelected(it))
                 }
             }
@@ -87,7 +90,6 @@ fun TrackerScreenPreviewlable() {
         floatingActionButtonPosition = FabPosition.End,
         floatingActionButton = {
             DefaultFAB {
-
             }
         }
 
@@ -99,10 +101,9 @@ fun TrackerScreenPreviewlable() {
                 .fillMaxSize()
                 .background(color = BackgroundColor)
         ) {
-
-            //Header
-            TrackerHeader(lastSelectedNumbers = emptyList(),null)
-            //Title
+            // Header
+            TrackerHeader(lastSelectedNumbers = emptyList(), null)
+            // Title
             HeaderTitle(
                 text = "Estratégias Disponíveis",
                 modifier = Modifier
@@ -112,7 +113,7 @@ fun TrackerScreenPreviewlable() {
                 availableStrategies = provideRouletteStrategy(),
                 modifier = Modifier
                     .padding(LocalSpacing.current.spaceMedium)
-            ){}
+            ) {}
         }
     }
 }
