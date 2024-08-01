@@ -35,7 +35,7 @@ class CheckMirrorStrategy {
             } ?: return null
 
         return RouletteStrategy(
-            strategyTitle = "Espelho",
+            strategyTitle = "Força Espelho",
             strategyDescription = "Os 3 últimos números cairam no mesmo quarto da roleta, jogue nos vizinhos do quarto oposto.",
             playableNumbers = playableNumbers,
             playableDozen = Dozen.none,
