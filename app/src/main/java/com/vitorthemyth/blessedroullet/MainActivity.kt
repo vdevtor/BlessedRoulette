@@ -3,7 +3,9 @@ package com.vitorthemyth.blessedroullet
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Snackbar
 import androidx.compose.material.SnackbarHost
@@ -24,14 +26,14 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        enableEdgeToEdge()
         setContent {
             BlessedRoulletTheme {
                 val scaffoldState = rememberScaffoldState()
                 val navController = rememberNavController()
 
                 Scaffold(
-                    modifier = Modifier.fillMaxSize(),
+                    modifier = Modifier.fillMaxSize().safeDrawingPadding(),
                     scaffoldState = scaffoldState,
                     snackbarHost = {
                         SnackbarHost(hostState = scaffoldState.snackbarHostState) {
@@ -65,4 +67,6 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+
+
 }
