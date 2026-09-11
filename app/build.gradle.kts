@@ -13,7 +13,7 @@ android {
         applicationId = "com.vitorthemyth.blessedroullet"
         minSdk = 28
         targetSdk = 36
-        versionCode = 2
+        versionCode = 22
         versionName = "1.1.1"
 
         testInstrumentationRunner = "com.vitorthemyth.blessedroullet.di.HiltTestRunner"

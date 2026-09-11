@@ -35,7 +35,7 @@ class TrackerScreenViewModel @Inject constructor(
         when (event) {
             is TrackerScreenEvents.OnNewNumberSelected -> {
                 rouletteStepList = state.lastSelectedNumbers.toMutableList().also {
-                    it.removeLast()
+                    it.removeAt(it.lastIndex)
                     it.add(0, event.number)
                 }
                 state = state.copy(lastSelectedNumbers = rouletteStepList)
